@@ -16,3 +16,8 @@ We'll also be covering `LayoutAnimation` which you can read up on here [http://f
 A lot of people say there aren't great resources or documentation on animations, but seriously read [RESOURCES](RESOURCES.md)! Read code in the [Animation Example](https://github.com/facebook/react-native/blob/master/Examples/UIExplorer/AnimatedExample.js). Also checkout the code in the [Gratuitous Animation Examples](https://github.com/facebook/react-native/tree/master/Examples/UIExplorer/AnimatedGratuitousApp).
 
 For real though, why are you still here? Go read those before even bothering to read this stuff.
+
+
+## Hey you already blogged about this
+
+Yeah, I might steal some examples from my blog and repurpose them, clean them up, etc. Deal with it.

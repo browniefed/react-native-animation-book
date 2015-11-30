@@ -27,6 +27,12 @@ Animated.timing(this._animatedValue, {
 
 This animation will wait `300` milliseconds before triggering and then take `500` milliseconds to animate from `0` to `100`. The total time of animation will be `800` milliseconds.
 
+
+#### Live Code [https://rnplay.org/apps/BH9T8Q](https://rnplay.org/apps/BH9T8Q)
+
+![Simple Timing Move](images/SimpleTimingMove.gif)
+
+
 The other is `easing`, which if none is supplied defaults to `easeInOut`. To get access to a bunch of pre-defined easing functions you can require the `Easing` module like so.
 
 ```

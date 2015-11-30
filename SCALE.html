@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Scale | Introduction</title>
+        <title>Scale / Mapping Values | Introduction</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.2">
@@ -50,10 +50,10 @@
         
     <div class="book"
         data-level="4.3"
-        data-chapter-title="Scale"
+        data-chapter-title="Scale / Mapping Values"
         data-filepath="SCALE.md"
         data-basepath="."
-        data-revision="Mon Nov 30 2015 09:09:06 GMT-0800 (PST)"
+        data-revision="Mon Nov 30 2015 11:05:36 GMT-0800 (PST)"
         data-innerlanguage="">
     
 
@@ -551,7 +551,7 @@
                         
                             <b>4.3.</b>
                         
-                        Scale
+                        Scale / Mapping Values
                     </a>
             
             
@@ -785,7 +785,66 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="scale">Scale</h1>
+                        <h1 id="scale--mapping-values">Scale / Mapping Values</h1>
+<p>Scale probably isn&apos;t the correct word, and is slightly confusing, but with interpolation  </p>
+<h4 id="up">Up</h4>
+<pre><code>this._animatedValue = new Animated.Value(0);
+
+this._animatedValue.interpolate({
+  inputRange: [0, 1],
+  outputRange: [0, 100],
+});
+</code></pre><p>Taking an input range from <code>0</code> to <code>1</code> and having the output from <code>0</code> to <code>100</code></p>
+<p>If we were to have an animation that animates the value from <code>0</code> to <code>1</code> over the course of <code>1</code> second then each <code>100</code> milliseconds would cause a step of <code>10</code></p>
+<pre><code>Animated.timing(this._animatedValue, {
+    toValue: 1,
+    duration: 1000
+})
+</code></pre><p>Outputs</p>
+<pre><code>input: 0 =&gt; 0ms =&gt; output: 0
+input: .1 =&gt; 100ms =&gt; output: 10
+input: .2 =&gt; 200ms =&gt; output: 20
+input: .3 =&gt; 300ms =&gt; output: 30
+....
+input: 1 =&gt; 1000ms =&gt; output: 100
+</code></pre><h4 id="down">Down</h4>
+<p>The reverse is also true. </p>
+<pre><code>this._animatedValue = new Animated.Value(0);
+
+this._animatedValue.interpolate({
+  inputRange: [0, 100],
+  outputRange: [0, 1],
+});
+</code></pre><p>We can scale our input values down to a smaller output range.</p>
+<pre><code>Animated.timing(this._animatedValue, {
+    toValue: 100,
+    duration: 1000
+})
+</code></pre><p>Outputs</p>
+<pre><code>input: 0 =&gt; 0ms =&gt; output: 0
+input: 10 =&gt; 100ms =&gt; output: .1
+input: 20 =&gt; 200ms =&gt; output: .2
+input: 30 =&gt; 300ms =&gt; output: .3
+....
+input: 100 =&gt; 1000ms =&gt; output: 1
+</code></pre><h4 id="all-around">All Around</h4>
+<p>With interpolation you can map arbitrary <code>inputRange</code>s to arbitrary <code>outputRange</code>s. The only requirement is that <code>inputRange</code> is ascending, and that the <code>outputRange</code> has the same amount of values as <code>inputRange</code>.</p>
+<pre><code>this._animatedValue = new Animated.Value(0);
+
+this._animatedValue.interpolate({
+  inputRange: [0, 30, 50, 80, 100],
+  outputRange: [0, -30, -50, 0, 200],
+});
+</code></pre><p>Now what happens if we trigger a <code>1</code> second animation to <code>100</code></p>
+<pre><code>Animated.timing(this._animatedValue, {
+    toValue: 100,
+    duration: 1000
+})
+</code></pre><ul>
+<li>First we get inverse values, at <code>0 =&gt; 0</code>, <code>30 =&gt; -30</code> at the <code>300</code> millisecond point, and then <code>50 =&gt; -50</code> at the <code>500</code> millisecond point.</li>
+<li>Then we immediately animate from <code>-50</code> to <code>0</code> from the <code>500</code> millisecond to <code>800</code> millisecond point.</li>
+<li>Finally over the last <code>200</code> milliseconds we shoot from <code>0</code> to <code>200</code>.</li>
+</ul>
 
                     
                     </section>

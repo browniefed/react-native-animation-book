@@ -1,4 +1,9 @@
-# Introduction
+# THIS IS A WORK IN PROGRESS!!!
+
+If you would like to see specific things let me know.
+
+
+## Introduction
 
 React Native has had a fantastic reception. There have already been a ton of great applications built using React Native. However one hugely important part of mobile applications is animations. React on the web has generally been pretty poor at dealing with animations, however there are some great people out their attempting to solve this problem. One such solution is `react-motion` [https://github.com/chenglou/react-motion/](https://github.com/chenglou/react-motion/).
 

@@ -2,6 +2,17 @@
 
 If you would like to see specific things let me know.
 
+TODO:
+
+* Clamp
+* PanResponder
+* Scroll
+
+* Basic Animations
+* Advanced Animations
+
+* Add gifs and live code examples where needed
+
 
 ## Introduction
 

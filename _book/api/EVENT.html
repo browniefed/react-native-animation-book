@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Moving Square | THIS IS A WORK IN PROGRESS!!!</title>
+        <title>Animated.event | THIS IS A WORK IN PROGRESS!!!</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.2">
@@ -37,10 +37,10 @@
         
     
     
-    <link rel="next" href="../basic/DRAG.html" />
+    <link rel="next" href="../api/CREATEANIMATEDCOMPONENT.html" />
     
     
-    <link rel="prev" href="../BASICS.html" />
+    <link rel="prev" href="../api/DELAY.html" />
     
 
         
@@ -49,9 +49,9 @@
         
         
     <div class="book"
-        data-level="6.1"
-        data-chapter-title="Moving Square"
-        data-filepath="basic/SQUARE.md"
+        data-level="3.11"
+        data-chapter-title="Animated.event"
+        data-filepath="api/EVENT.md"
         data-basepath=".."
         data-revision="Wed Dec 02 2015 10:40:44 GMT-0800 (PST)"
         data-innerlanguage="">
@@ -461,7 +461,7 @@
             
         </li>
     
-        <li class="chapter " data-level="3.11" data-path="api/EVENT.html">
+        <li class="chapter active" data-level="3.11" data-path="api/EVENT.html">
             
                 
                     <a href="../api/EVENT.html">
@@ -644,7 +644,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="6.1" data-path="basic/SQUARE.html">
+        <li class="chapter " data-level="6.1" data-path="basic/SQUARE.html">
             
                 
                     <a href="../basic/SQUARE.html">
@@ -844,57 +844,26 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="basic-square-animation">Basic Square Animation</h1>
-<h4 id="live-code-httpsrnplayorgappsbh9t8q">Live Code <a href="https://rnplay.org/apps/BH9T8Q" target="_blank">https://rnplay.org/apps/BH9T8Q</a></h4>
-<p><img src="../images/SimpleTimingMove.gif" alt="Simple Timing Move"></p>
-<pre><code>var React = require(&apos;react-native&apos;);
+                        <h1 id="animatedevent">Animated.event</h1>
+<p>This is just a helper function to map arbitrary data to <code>Animated</code> values. Check out the docs for their explanation <a href="http://facebook.github.io/react-native/docs/animated.html#event" target="_blank">http://facebook.github.io/react-native/docs/animated.html#event</a>.</p>
+<p>There are 2 main cases when you want to use <code>Animated.event</code>. When dealing with<code>PanResponder</code> events, and or dealing with <code>onScroll</code> events. You could write up your own function and map things yourself but use what&apos;s provided for you.</p>
+<p>Example of <code>PanResponder</code></p>
+<pre><code> onPanResponderMove: Animated.event([
+   null,                // raw event arg ignored
+   {dx: this._pan.x, dy: this._pan.y},    // gestureState arg
+ ]),
+</code></pre><p> What is happening here is that the <code>onPanResponderMove</code> calls it&apos;s function with 2 params. We are ignoring the raw event, which is the first argument, thus we pass null.
+ The second argument is the <code>gestureState</code> which provides some helpful values, in our case <code>dx</code> and <code>dy</code>. Which are deltas (aka the changes) in how far the user has moved their finger from the beginning of the touch.</p>
+<p> We pass in our 2 animated values from an <code>Animated.ValueXY</code> which our <code>Animated.event</code> will take that configuration, traverse it, find the Animated values and call <code>setValue</code> for us. Effectively whne the user moves their finger our Animated values will be the delta positions.</p>
+<p> This could then be passed into a <code>translateX/translateY</code></p>
+<p> The other case is Scroll. Maybe you want to trigger certain background colors? effects? etc on scroll. Well hooking into the <code>onScroll</code> of a <code>ScrollView</code> or <code>ListView</code> with an <code>Animated.event</code> can help with that. </p>
+<p> In our case here we&apos;re listening to how far the x is being scrolled.</p>
+<pre><code> onScroll={Animated.event(
+   [{nativeEvent: {contentOffset: {x: this._scrollX}}}]
+   {listener},          // Optional async listener
+ )
+</code></pre><p>Additionally you can define a callback listener as the second argument to <code>Animated.event</code>.</p>
 
-var {
-  AppRegistry,
-  StyleSheet,
-  View,
-  Animated
-} = React;
-
-var SampleApp = React.createClass({
-  componentWillMount: function() {
-    this._animatedValue = new Animated.Value(0);
-  },
-
-  componentDidMount: function() {
-    Animated.timing(this._animatedValue, {
-        toValue: 300,
-        duration: 500
-    }).start();
-  },
-
-  render: function() {
-    return (
-      &lt;View style={styles.container}&gt;
-       &lt;Animated.View 
-              style={[styles.box, {transform: [{translateY: this._animatedValue}]}]}
-          /&gt;
-      &lt;/View&gt;
-    );
-  }
-});
-
-var styles = StyleSheet.create({
-  container: {
-    flex: 1
-  },
-  box: {
-       backgroundColor: &apos;red&apos;,
-    position: &apos;absolute&apos;,
-    top: 100,
-    left: 100,
-    width: 100,
-    height: 100
-  }
-});
-
-AppRegistry.registerComponent(&apos;SampleApp&apos;, () =&gt; SampleApp);
-</code></pre>
                     
                     </section>
                 
@@ -904,10 +873,10 @@ AppRegistry.registerComponent(&apos;SampleApp&apos;, () =&gt; SampleApp);
         </div>
 
         
-        <a href="../BASICS.html" class="navigation navigation-prev " aria-label="Previous page: Basic Animations"><i class="fa fa-angle-left"></i></a>
+        <a href="../api/DELAY.html" class="navigation navigation-prev " aria-label="Previous page: Animated.delay"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../basic/DRAG.html" class="navigation navigation-next " aria-label="Next page: Drag Square"><i class="fa fa-angle-right"></i></a>
+        <a href="../api/CREATEANIMATEDCOMPONENT.html" class="navigation navigation-next " aria-label="Next page: Animated.createAnimatedComponent"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

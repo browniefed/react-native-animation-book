@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Moving Square | THIS IS A WORK IN PROGRESS!!!</title>
+        <title>stopAnimation | THIS IS A WORK IN PROGRESS!!!</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.2">
@@ -37,10 +37,10 @@
         
     
     
-    <link rel="next" href="../basic/DRAG.html" />
+    <link rel="next" href="../api/VALUEXY.html" />
     
     
-    <link rel="prev" href="../BASICS.html" />
+    <link rel="prev" href="../api/ANIMATED_REMOVE_LISTENERS.html" />
     
 
         
@@ -49,9 +49,9 @@
         
         
     <div class="book"
-        data-level="6.1"
-        data-chapter-title="Moving Square"
-        data-filepath="basic/SQUARE.md"
+        data-level="3.1.5"
+        data-chapter-title="stopAnimation"
+        data-filepath="api/ANIMATED_STOPANIMATION.md"
         data-basepath=".."
         data-revision="Wed Dec 02 2015 10:40:44 GMT-0800 (PST)"
         data-innerlanguage="">
@@ -240,7 +240,7 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.5" data-path="api/ANIMATED_STOPANIMATION.html">
+        <li class="chapter active" data-level="3.1.5" data-path="api/ANIMATED_STOPANIMATION.html">
             
                 
                     <a href="../api/ANIMATED_STOPANIMATION.html">
@@ -644,7 +644,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="6.1" data-path="basic/SQUARE.html">
+        <li class="chapter " data-level="6.1" data-path="basic/SQUARE.html">
             
                 
                     <a href="../basic/SQUARE.html">
@@ -844,57 +844,19 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="basic-square-animation">Basic Square Animation</h1>
-<h4 id="live-code-httpsrnplayorgappsbh9t8q">Live Code <a href="https://rnplay.org/apps/BH9T8Q" target="_blank">https://rnplay.org/apps/BH9T8Q</a></h4>
-<p><img src="../images/SimpleTimingMove.gif" alt="Simple Timing Move"></p>
-<pre><code>var React = require(&apos;react-native&apos;);
+                        <h1 id="stopanimation">stopAnimation</h1>
+<p>If an animation is in process of being animated and for any particular reason you need to stop it you can call <code>stopAnimation</code>. The <code>stopAnimation</code> call also takes a callback with the value that the animation was stopped on.</p>
+<pre><code>this._animatedValue = new Animated.Value(0);
 
-var {
-  AppRegistry,
-  StyleSheet,
-  View,
-  Animated
-} = React;
+Animated.timing(this._animatedValue, {
+    toValue: 100,
+    duration: 500
+}).start();
 
-var SampleApp = React.createClass({
-  componentWillMount: function() {
-    this._animatedValue = new Animated.Value(0);
-  },
 
-  componentDidMount: function() {
-    Animated.timing(this._animatedValue, {
-        toValue: 300,
-        duration: 500
-    }).start();
-  },
+setTimeout(() =&gt; this._animatedValue.stopAnimation(({value}) =&gt; console.log(&quot;Final Value: &quot; + value)), 250);
+</code></pre><p>In this example after 250 milliseconds we&apos;ll stop the 500 millisecond animation. We also console log out the final value, it&apos;ll be roughly somewhere around 50.</p>
 
-  render: function() {
-    return (
-      &lt;View style={styles.container}&gt;
-       &lt;Animated.View 
-              style={[styles.box, {transform: [{translateY: this._animatedValue}]}]}
-          /&gt;
-      &lt;/View&gt;
-    );
-  }
-});
-
-var styles = StyleSheet.create({
-  container: {
-    flex: 1
-  },
-  box: {
-       backgroundColor: &apos;red&apos;,
-    position: &apos;absolute&apos;,
-    top: 100,
-    left: 100,
-    width: 100,
-    height: 100
-  }
-});
-
-AppRegistry.registerComponent(&apos;SampleApp&apos;, () =&gt; SampleApp);
-</code></pre>
                     
                     </section>
                 
@@ -904,10 +866,10 @@ AppRegistry.registerComponent(&apos;SampleApp&apos;, () =&gt; SampleApp);
         </div>
 
         
-        <a href="../BASICS.html" class="navigation navigation-prev " aria-label="Previous page: Basic Animations"><i class="fa fa-angle-left"></i></a>
+        <a href="../api/ANIMATED_REMOVE_LISTENERS.html" class="navigation navigation-prev " aria-label="Previous page: removeListener/removeAllListeners"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../basic/DRAG.html" class="navigation navigation-next " aria-label="Next page: Drag Square"><i class="fa fa-angle-right"></i></a>
+        <a href="../api/VALUEXY.html" class="navigation navigation-next " aria-label="Next page: Animated.ValueXY"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

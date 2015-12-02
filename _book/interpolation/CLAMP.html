@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Moving Square | THIS IS A WORK IN PROGRESS!!!</title>
+        <title>Clamp | THIS IS A WORK IN PROGRESS!!!</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.2">
@@ -37,10 +37,10 @@
         
     
     
-    <link rel="next" href="../basic/DRAG.html" />
+    <link rel="next" href="../GESTURES.html" />
     
     
-    <link rel="prev" href="../BASICS.html" />
+    <link rel="prev" href="../interpolation/SCALE.html" />
     
 
         
@@ -49,9 +49,9 @@
         
         
     <div class="book"
-        data-level="6.1"
-        data-chapter-title="Moving Square"
-        data-filepath="basic/SQUARE.md"
+        data-level="4.4"
+        data-chapter-title="Clamp"
+        data-filepath="interpolation/CLAMP.md"
         data-basepath=".."
         data-revision="Wed Dec 02 2015 10:40:44 GMT-0800 (PST)"
         data-innerlanguage="">
@@ -557,7 +557,7 @@
             
         </li>
     
-        <li class="chapter " data-level="4.4" data-path="interpolation/CLAMP.html">
+        <li class="chapter active" data-level="4.4" data-path="interpolation/CLAMP.html">
             
                 
                     <a href="../interpolation/CLAMP.html">
@@ -644,7 +644,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="6.1" data-path="basic/SQUARE.html">
+        <li class="chapter " data-level="6.1" data-path="basic/SQUARE.html">
             
                 
                     <a href="../basic/SQUARE.html">
@@ -844,57 +844,11 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="basic-square-animation">Basic Square Animation</h1>
-<h4 id="live-code-httpsrnplayorgappsbh9t8q">Live Code <a href="https://rnplay.org/apps/BH9T8Q" target="_blank">https://rnplay.org/apps/BH9T8Q</a></h4>
-<p><img src="../images/SimpleTimingMove.gif" alt="Simple Timing Move"></p>
-<pre><code>var React = require(&apos;react-native&apos;);
+                        <h1 id="clamp">Clamp</h1>
+<p>With clamp we will control how <code>Animated</code> extrapolates. The definition of extrapolation actually explains extrapolation really well.... go figure.</p>
+<pre><code>extrapolation is the process of estimating, beyond the original observation range, the value of a variable on the basis of its relationship with another variable.
+</code></pre><p>Extrapolation is default on in <code>Animated</code></p>
 
-var {
-  AppRegistry,
-  StyleSheet,
-  View,
-  Animated
-} = React;
-
-var SampleApp = React.createClass({
-  componentWillMount: function() {
-    this._animatedValue = new Animated.Value(0);
-  },
-
-  componentDidMount: function() {
-    Animated.timing(this._animatedValue, {
-        toValue: 300,
-        duration: 500
-    }).start();
-  },
-
-  render: function() {
-    return (
-      &lt;View style={styles.container}&gt;
-       &lt;Animated.View 
-              style={[styles.box, {transform: [{translateY: this._animatedValue}]}]}
-          /&gt;
-      &lt;/View&gt;
-    );
-  }
-});
-
-var styles = StyleSheet.create({
-  container: {
-    flex: 1
-  },
-  box: {
-       backgroundColor: &apos;red&apos;,
-    position: &apos;absolute&apos;,
-    top: 100,
-    left: 100,
-    width: 100,
-    height: 100
-  }
-});
-
-AppRegistry.registerComponent(&apos;SampleApp&apos;, () =&gt; SampleApp);
-</code></pre>
                     
                     </section>
                 
@@ -904,10 +858,10 @@ AppRegistry.registerComponent(&apos;SampleApp&apos;, () =&gt; SampleApp);
         </div>
 
         
-        <a href="../BASICS.html" class="navigation navigation-prev " aria-label="Previous page: Basic Animations"><i class="fa fa-angle-left"></i></a>
+        <a href="../interpolation/SCALE.html" class="navigation navigation-prev " aria-label="Previous page: Scale / Mapping Values"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../basic/DRAG.html" class="navigation navigation-next " aria-label="Next page: Drag Square"><i class="fa fa-angle-right"></i></a>
+        <a href="../GESTURES.html" class="navigation navigation-next " aria-label="Next page: Handling Gestures / Events"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

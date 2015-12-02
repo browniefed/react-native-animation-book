@@ -36,4 +36,4 @@ For real though, why are you still here? Go read those before even bothering to 
 
 ## Hey you already blogged about this
 
-Yeah, I might steal some examples from my blog and repurpose them, clean them up, etc. Deal with it.
+Yeah, I might steal some examples from my blog and repurpose them, clean them up, etc. Deal with it. They are my blog posts and I'll do whatever the hell I want with them.

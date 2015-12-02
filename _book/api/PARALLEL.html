@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Moving Square | THIS IS A WORK IN PROGRESS!!!</title>
+        <title>Animated.parallel | THIS IS A WORK IN PROGRESS!!!</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.2">
@@ -37,10 +37,10 @@
         
     
     
-    <link rel="next" href="../basic/DRAG.html" />
+    <link rel="next" href="../api/STAGGER.html" />
     
     
-    <link rel="prev" href="../BASICS.html" />
+    <link rel="prev" href="../api/SEQUENCE.html" />
     
 
         
@@ -49,9 +49,9 @@
         
         
     <div class="book"
-        data-level="6.1"
-        data-chapter-title="Moving Square"
-        data-filepath="basic/SQUARE.md"
+        data-level="3.8"
+        data-chapter-title="Animated.parallel"
+        data-filepath="api/PARALLEL.md"
         data-basepath=".."
         data-revision="Wed Dec 02 2015 10:40:44 GMT-0800 (PST)"
         data-innerlanguage="">
@@ -416,7 +416,7 @@
             
         </li>
     
-        <li class="chapter " data-level="3.8" data-path="api/PARALLEL.html">
+        <li class="chapter active" data-level="3.8" data-path="api/PARALLEL.html">
             
                 
                     <a href="../api/PARALLEL.html">
@@ -644,7 +644,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="6.1" data-path="basic/SQUARE.html">
+        <li class="chapter " data-level="6.1" data-path="basic/SQUARE.html">
             
                 
                     <a href="../basic/SQUARE.html">
@@ -844,57 +844,29 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="basic-square-animation">Basic Square Animation</h1>
-<h4 id="live-code-httpsrnplayorgappsbh9t8q">Live Code <a href="https://rnplay.org/apps/BH9T8Q" target="_blank">https://rnplay.org/apps/BH9T8Q</a></h4>
-<p><img src="../images/SimpleTimingMove.gif" alt="Simple Timing Move"></p>
-<pre><code>var React = require(&apos;react-native&apos;);
+                        <h1 id="animatedparallel">Animated.parallel</h1>
+<p>The <code>parallel</code> call will have all defined animations in the array trigger at the same time.</p>
+<pre><code>this._opacityAnimationValue = new Animated.Value(1);
+this._moveAnimationValue = new Animated.ValueXY();
 
-var {
-  AppRegistry,
-  StyleSheet,
-  View,
-  Animated
-} = React;
 
-var SampleApp = React.createClass({
-  componentWillMount: function() {
-    this._animatedValue = new Animated.Value(0);
-  },
-
-  componentDidMount: function() {
-    Animated.timing(this._animatedValue, {
-        toValue: 300,
+Animated.stagger(100, [
+    Animated.timing(this._moveAnimationValue, {
+        toValue: 100,
         duration: 500
-    }).start();
-  },
+    }),
+    Animated.timing(this._opacityAnimationValue, {
+        toValue: 0,
+        duration: 200
+    })
+]).start()
 
-  render: function() {
-    return (
-      &lt;View style={styles.container}&gt;
-       &lt;Animated.View 
-              style={[styles.box, {transform: [{translateY: this._animatedValue}]}]}
-          /&gt;
-      &lt;/View&gt;
-    );
-  }
-});
+&lt;Animated.View style={{opacity: this._opacityAnimationValue, transform: this._moveAnimationValue.getTranslateTransform()}} /&gt;
+</code></pre><p>Our example here we have 2 animations. One that will control opacity, and the other movement ( or in our case translateX/translateY).</p>
+<p>The first animation will move the View from <code>x: 0, y: 0</code> to <code>x: 100, y: 100</code>. 
+At the same time our second animation will kick off and it will fade out the opacity from <code>1</code> to <code>0</code>.</p>
+<p>So the <code>Animated.View</code> will move and fade out at the same time.</p>
 
-var styles = StyleSheet.create({
-  container: {
-    flex: 1
-  },
-  box: {
-       backgroundColor: &apos;red&apos;,
-    position: &apos;absolute&apos;,
-    top: 100,
-    left: 100,
-    width: 100,
-    height: 100
-  }
-});
-
-AppRegistry.registerComponent(&apos;SampleApp&apos;, () =&gt; SampleApp);
-</code></pre>
                     
                     </section>
                 
@@ -904,10 +876,10 @@ AppRegistry.registerComponent(&apos;SampleApp&apos;, () =&gt; SampleApp);
         </div>
 
         
-        <a href="../BASICS.html" class="navigation navigation-prev " aria-label="Previous page: Basic Animations"><i class="fa fa-angle-left"></i></a>
+        <a href="../api/SEQUENCE.html" class="navigation navigation-prev " aria-label="Previous page: Animated.sequence"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../basic/DRAG.html" class="navigation navigation-next " aria-label="Next page: Drag Square"><i class="fa fa-angle-right"></i></a>
+        <a href="../api/STAGGER.html" class="navigation navigation-next " aria-label="Next page: Animated.stagger"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

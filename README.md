@@ -1,4 +1,6 @@
-# THIS IS A WORK IN PROGRESS!!!
+# React Native Animation Book
+
+## THIS IS A WORK IN PROGRESS
 
 If you would like to see specific things let me know.
 
@@ -8,7 +10,7 @@ TODO:
 * PanResponder
 * Scroll
 
-* Basic Animations
+* Basic Animations ( Some complete, need more basic animations)
 * Advanced Animations
 
 * Add gifs and live code examples where needed

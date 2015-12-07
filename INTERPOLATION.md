@@ -39,6 +39,72 @@ Clamp is VERY IMPORTANT to remember as you may have unintended side effects, esp
 
 Additioanlly you must pass in the same amount of values in `inputRange` and `outputRange`. This can be weird as you may find yourself duplicating some values in `outputRange` occasionally. I've mostly run into this sort of thing when dealing with colors.
 
+## Extrapolate
+
+Alright we just talked about `extrapolate` however we have a few other options.
+
+The 3 options we have are `clamp`, `identity`, and `extend`. Extend is the default which may seem obvious, but as stated it will continue the interpolation past the end value at whatever the current step is.
+
+```
+type ExtrapolateType = 'extend' | 'identity' | 'clamp';
+
+extrapolate?: ExtrapolateType;
+extrapolateLeft?: ExtrapolateType;
+extrapolateRight?: ExtrapolateType;
+```
+
+We also have more than just `extrapolate`. We have access to what the interpolation does when animating `left => right` and additionally when animating from `right => left`.
+
+That may seem confusing so let me explain. Take this as an example
+
+```
+this._animatedValue = new Animated.Value(0);
+
+var scaleAndFlipOnReverse = this._animatedValue.y.interpolate({
+  inputRange: [0, deviceHeight],
+  outputRange: [.1, 2],
+  extrapolateLeft: 'extend',
+  extrapolateRight: 'clamp'
+});
+
+<Animated.View style={{transform: [{scale: scaleAndFlipOnReverse}]}} />
+```
+
+#### Clamp/Extend
+So assume a user is dragging a sqaure, and if the square is moved from the `0` postion to `100` then it will quickly scale the the square from `.1` to `2` ( double its full size) and stop.
+However if we go in the reverse direction and drag it back from `100` down to `0` positin and then beyond it will continue to scale down and to a negative value eventually.
+This will cause it to flip! This is showing that when we hit our top level (moving to the right) it will `clamp` and then moving downwards (towars the left) it will just extend and grow.
+
+![Extrapolate Animation](images/ExtrapolateAnimation.gif)
+
+##### Live Code [https://rnplay.org/apps/FVf7Pw](https://rnplay.org/apps/FVf7Pw)
+
+#### Clamp/Identity
+How about when we do an `identity`? 
+
+Well what that will do is bypass everything! Easings, etc. Once it hits the boundaries of your `inputRange` and `outputRange` whatever the input happens to be will become the value.
+
+```
+this._animatedValue = new Animated.Value(0);
+
+var scaleAndFlipOnReverse = this._animatedValue.y.interpolate({
+  inputRange: [0, deviceHeight],
+  outputRange: [.1, 2],
+  extrapolateLeft: 'identity',
+  extrapolateRight: 'clamp'
+});
+
+<Animated.View style={{transform: [{scale: scaleAndFlipOnReverse}]}} />
+```
+
+What will happen here is as we move right it will `clamp` at a scale of `2`. However once we get down passed `0` it will take on whatever the value of our `this._animatedValue` happens to be! In our case if we are dragging it could go from `0` to a VERY large value as the user drags. You can see that here in this gif. I am unsure about a practical application for this but I'm sure there is one I have yet to run into.
+
+![Extrapolate Identity Animation](images/ExtrapolateIdentityAnimation.gif)
+
+##### Live Code [https://rnplay.org/apps/Bmya8g](https://rnplay.org/apps/Bmya8g)
+
+
+
 
 ## Handy Technique - .99
 

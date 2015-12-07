@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Interpolation | THIS IS A WORK IN PROGRESS!!!</title>
+        <title>Interpolation | React Native Animation Book</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.2">
@@ -53,7 +53,7 @@
         data-chapter-title="Interpolation"
         data-filepath="INTERPOLATION.md"
         data-basepath="."
-        data-revision="Mon Dec 07 2015 12:00:01 GMT-0800 (PST)"
+        data-revision="Mon Dec 07 2015 12:33:41 GMT-0800 (PST)"
         data-innerlanguage="">
     
 
@@ -834,7 +834,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="./" >THIS IS A WORK IN PROGRESS!!!</a>
+        <a href="./" >React Native Animation Book</a>
     </h1>
 </div>
 
@@ -867,6 +867,48 @@ this._opacityAnimation = this._animatedValue.x.interpolate({
 });
 </code></pre><p>Clamp is VERY IMPORTANT to remember as you may have unintended side effects, especially when dealing with colors and rotation.</p>
 <p>Additioanlly you must pass in the same amount of values in <code>inputRange</code> and <code>outputRange</code>. This can be weird as you may find yourself duplicating some values in <code>outputRange</code> occasionally. I&apos;ve mostly run into this sort of thing when dealing with colors.</p>
+<h2 id="extrapolate">Extrapolate</h2>
+<p>Alright we just talked about <code>extrapolate</code> however we have a few other options.</p>
+<p>The 3 options we have are <code>clamp</code>, <code>identity</code>, and <code>extend</code>. Extend is the default which may seem obvious, but as stated it will continue the interpolation past the end value at whatever the current step is.</p>
+<pre><code>type ExtrapolateType = &apos;extend&apos; | &apos;identity&apos; | &apos;clamp&apos;;
+
+extrapolate?: ExtrapolateType;
+extrapolateLeft?: ExtrapolateType;
+extrapolateRight?: ExtrapolateType;
+</code></pre><p>We also have more than just <code>extrapolate</code>. We have access to what the interpolation does when animating <code>left =&gt; right</code> and additionally when animating from <code>right =&gt; left</code>.</p>
+<p>That may seem confusing so let me explain. Take this as an example</p>
+<pre><code>this._animatedValue = new Animated.Value(0);
+
+var scaleAndFlipOnReverse = this._animatedValue.y.interpolate({
+  inputRange: [0, deviceHeight],
+  outputRange: [.1, 2],
+  extrapolateLeft: &apos;extend&apos;,
+  extrapolateRight: &apos;clamp&apos;
+});
+
+&lt;Animated.View style={{transform: [{scale: scaleAndFlipOnReverse}]}} /&gt;
+</code></pre><h4 id="clampextend">Clamp/Extend</h4>
+<p>So assume a user is dragging a sqaure, and if the square is moved from the <code>0</code> postion to <code>100</code> then it will quickly scale the the square from <code>.1</code> to <code>2</code> ( double its full size) and stop.
+However if we go in the reverse direction and drag it back from <code>100</code> down to <code>0</code> positin and then beyond it will continue to scale down and to a negative value eventually.
+This will cause it to flip! This is showing that when we hit our top level (moving to the right) it will <code>clamp</code> and then moving downwards (towars the left) it will just extend and grow.</p>
+<p><img src="images/ExtrapolateAnimation.gif" alt="Extrapolate Animation"></p>
+<h5 id="live-code-httpsrnplayorgappsfvf7pw">Live Code <a href="https://rnplay.org/apps/FVf7Pw" target="_blank">https://rnplay.org/apps/FVf7Pw</a></h5>
+<h4 id="clampidentity">Clamp/Identity</h4>
+<p>How about when we do an <code>identity</code>? </p>
+<p>Well what that will do is bypass everything! Easings, etc. Once it hits the boundaries of your <code>inputRange</code> and <code>outputRange</code> whatever the input happens to be will become the value.</p>
+<pre><code>this._animatedValue = new Animated.Value(0);
+
+var scaleAndFlipOnReverse = this._animatedValue.y.interpolate({
+  inputRange: [0, deviceHeight],
+  outputRange: [.1, 2],
+  extrapolateLeft: &apos;identity&apos;,
+  extrapolateRight: &apos;clamp&apos;
+});
+
+&lt;Animated.View style={{transform: [{scale: scaleAndFlipOnReverse}]}} /&gt;
+</code></pre><p>What will happen here is as we move right it will <code>clamp</code> at a scale of <code>2</code>. However once we get down passed <code>0</code> it will take on whatever the value of our <code>this._animatedValue</code> happens to be! In our case if we are dragging it could go from <code>0</code> to a VERY large value as the user drags. You can see that here in this gif. I am unsure about a practical application for this but I&apos;m sure there is one I have yet to run into.</p>
+<p><img src="images/ExtrapolateIdentityAnimation.gif" alt="Extrapolate Identity Animation"></p>
+<h5 id="live-code-httpsrnplayorgappsbmya8g">Live Code <a href="https://rnplay.org/apps/Bmya8g" target="_blank">https://rnplay.org/apps/Bmya8g</a></h5>
 <h2 id="handy-technique--99">Handy Technique - .99</h2>
 <p>The Animated library and interpolation is great, but it does have some downfalls. Sometimes you want to in essense trigger a <code>setValue</code> but if you are specifying an <code>inputRange</code> and <code>outputRange</code> all of these values will be animated to. </p>
 <p>In our opacity case it will always slowly step the animation down from <code>1</code> to <code>.2</code>. What if you want to have a drop off cliff. Like if the user moves it <code>75</code> it should immediately drop to <code>.2</code> opacity. </p>

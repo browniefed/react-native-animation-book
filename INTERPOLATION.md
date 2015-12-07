@@ -57,6 +57,8 @@ We also have more than just `extrapolate`. We have access to what the interpolat
 
 That may seem confusing so let me explain. Take this as an example
 
+#### Clamp/Extend
+
 ```
 this._animatedValue = new Animated.Value(0);
 
@@ -70,7 +72,6 @@ var scaleAndFlipOnReverse = this._animatedValue.y.interpolate({
 <Animated.View style={{transform: [{scale: scaleAndFlipOnReverse}]}} />
 ```
 
-#### Clamp/Extend
 So assume a user is dragging a sqaure, and if the square is moved from the `0` postion to `100` then it will quickly scale the the square from `.1` to `2` ( double its full size) and stop.
 However if we go in the reverse direction and drag it back from `100` down to `0` positin and then beyond it will continue to scale down and to a negative value eventually.
 This will cause it to flip! This is showing that when we hit our top level (moving to the right) it will `clamp` and then moving downwards (towars the left) it will just extend and grow.
@@ -80,6 +81,7 @@ This will cause it to flip! This is showing that when we hit our top level (movi
 ##### Live Code [https://rnplay.org/apps/FVf7Pw](https://rnplay.org/apps/FVf7Pw)
 
 #### Clamp/Identity
+
 How about when we do an `identity`? 
 
 Well what that will do is bypass everything! Easings, etc. Once it hits the boundaries of your `inputRange` and `outputRange` whatever the input happens to be will become the value.

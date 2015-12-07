@@ -53,7 +53,7 @@
         data-chapter-title="Interpolation"
         data-filepath="INTERPOLATION.md"
         data-basepath="."
-        data-revision="Mon Dec 07 2015 12:33:41 GMT-0800 (PST)"
+        data-revision="Mon Dec 07 2015 12:35:41 GMT-0800 (PST)"
         data-innerlanguage="">
     
 
@@ -877,6 +877,7 @@ extrapolateLeft?: ExtrapolateType;
 extrapolateRight?: ExtrapolateType;
 </code></pre><p>We also have more than just <code>extrapolate</code>. We have access to what the interpolation does when animating <code>left =&gt; right</code> and additionally when animating from <code>right =&gt; left</code>.</p>
 <p>That may seem confusing so let me explain. Take this as an example</p>
+<h4 id="clampextend">Clamp/Extend</h4>
 <pre><code>this._animatedValue = new Animated.Value(0);
 
 var scaleAndFlipOnReverse = this._animatedValue.y.interpolate({
@@ -887,8 +888,7 @@ var scaleAndFlipOnReverse = this._animatedValue.y.interpolate({
 });
 
 &lt;Animated.View style={{transform: [{scale: scaleAndFlipOnReverse}]}} /&gt;
-</code></pre><h4 id="clampextend">Clamp/Extend</h4>
-<p>So assume a user is dragging a sqaure, and if the square is moved from the <code>0</code> postion to <code>100</code> then it will quickly scale the the square from <code>.1</code> to <code>2</code> ( double its full size) and stop.
+</code></pre><p>So assume a user is dragging a sqaure, and if the square is moved from the <code>0</code> postion to <code>100</code> then it will quickly scale the the square from <code>.1</code> to <code>2</code> ( double its full size) and stop.
 However if we go in the reverse direction and drag it back from <code>100</code> down to <code>0</code> positin and then beyond it will continue to scale down and to a negative value eventually.
 This will cause it to flip! This is showing that when we hit our top level (moving to the right) it will <code>clamp</code> and then moving downwards (towars the left) it will just extend and grow.</p>
 <p><img src="images/ExtrapolateAnimation.gif" alt="Extrapolate Animation"></p>

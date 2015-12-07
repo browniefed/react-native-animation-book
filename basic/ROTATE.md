@@ -2,6 +2,8 @@
 
 #### Live Code [https://rnplay.org/apps/VI9yaw](https://rnplay.org/apps/VI9yaw)
 
+![Simple Rotate Animation](../images/SimpleRotateAnimation.gif)
+
 ```
 var React = require('react-native');
 var {

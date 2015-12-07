@@ -6,6 +6,9 @@ We'll do this animation 2 different ways. One just the color, the other is inter
 
 #### Live Code [https://rnplay.org/apps/MW3vBQ](https://rnplay.org/apps/MW3vBQ)
 
+![Simple Color Animation](../images/SimpleColorAnimation.gif)
+
+
 ```
 var React = require('react-native');
 var {

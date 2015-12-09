@@ -1,5 +1,8 @@
 # React Native Animation Book
 
+If you don't care about anything just jump to the [Basic Animation Examples](BASICS.md) which will eventually guide you from basic to advanced animations and allow you to experience the capabilities of React Native animations.
+
+
 ## THIS IS A WORK IN PROGRESS
 
 If you would like to see specific things let me know!

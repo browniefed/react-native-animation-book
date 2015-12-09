@@ -5,9 +5,10 @@
 If you would like to see specific things let me know!
 
 TODO:
+* LayoutAnimation explanations and examples
 * Basic Animations ( Add more basic animations)
 * Advanced Animations (Add some)
-* Add gifs and live code examples where needed
+* Add more gifs and live code examples where needed
 
 
 ## Introduction

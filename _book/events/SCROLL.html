@@ -53,7 +53,7 @@
         data-chapter-title="Scroll"
         data-filepath="events/SCROLL.md"
         data-basepath=".."
-        data-revision="Mon Dec 07 2015 12:35:41 GMT-0800 (PST)"
+        data-revision="Wed Dec 09 2015 15:05:30 GMT-0800 (PST)"
         data-innerlanguage="">
     
 
@@ -557,21 +557,6 @@
             
         </li>
     
-        <li class="chapter " data-level="4.4" data-path="interpolation/CLAMP.html">
-            
-                
-                    <a href="../interpolation/CLAMP.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>4.4.</b>
-                        
-                        Clamp
-                    </a>
-            
-            
-        </li>
-    
 
             </ul>
             
@@ -845,6 +830,67 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="scroll">Scroll</h1>
+<p>There are 2 scroll components <code>ListView</code> and <code>ScrollView</code>. <code>ScrollView</code> more commonly used for small amounts of content when performance is less important, and <code>ListView</code> when you&apos;re rendering large amounts of content and performance matters.</p>
+<p>One thing that they both provide is an <code>onScroll</code> function, and additionally you need to provide a <code>scrollEventThrottle</code> which will call the <code>onScroll</code> at a throttled rate. Typically that value should be set to <code>16</code> to receive all scroll events, otherwise put it higher if you care less.</p>
+<p>The <code>event.nativeEvent</code> will have a JSON structure like so. </p>
+<pre><code>{
+    &quot;contentOffset&quot;: {
+        &quot;x&quot;: 0,
+        &quot;y&quot;: 2395.333333333333
+    },
+    &quot;layoutMeasurement&quot;: {
+        &quot;width&quot;: 414,
+        &quot;height&quot;: 736
+    },
+    &quot;contentSize&quot;: {
+        &quot;width&quot;: 414,
+        &quot;height&quot;: 5000
+    },
+    &quot;zoomScale&quot;: 1,
+    &quot;updatedChildFrames&quot;: [],
+    &quot;contentInset&quot;: {
+        &quot;right&quot;: 0,
+        &quot;top&quot;: 0,
+        &quot;left&quot;: 0,
+        &quot;bottom&quot;: 0
+    }
+}
+</code></pre><p>The one thing to call out is the <code>contentSize</code> and the <code>contentOffset</code>. The <code>contentSize</code> will have the height of all rendered content inside of it, and the <code>contentOffset</code> will provide a current <code>x</code> and <code>y</code> of how far things have scrolled. You can have <code>horizontal</code>, <code>ListView</code>s and <code>ScrollView</code>s which is where the <code>x</code> distance comes into play.</p>
+<p>As an example lets say you want to change the background color of a view on scroll. </p>
+<pre><code>var SampleApp = React.createClass({
+  componentWillMount: function() {
+    this._animatedValue = new Animated.Value(0);
+  },
+  render: function() {
+    var interpolatedColor = this._animatedValue.interpolate({
+      inputRange: [0, 5000],
+      outputRange: [&apos;rgba(255,255,255,1)&apos;, &apos;rgba(51,156,177, 1)&apos;],
+      extrapolate: &apos;clamp&apos;
+    });
+
+    var event = Animated.event([
+      {
+        nativeEvent: { 
+          contentOffset: {
+            y: this._animatedValue
+          }
+        }
+      }
+    ])
+
+    return (
+      &lt;View style={styles.container}&gt;
+        &lt;ScrollView style={{flex: 1}} onScroll={event} scrollEventThrottle={16}&gt;
+          &lt;Animated.View style={{height: 5000, backgroundColor: interpolatedColor}} /&gt;   
+        &lt;/ScrollView&gt;
+      &lt;/View&gt;
+    );
+  }
+});
+</code></pre><p>We setup our <code>_animatedValue</code> and create our <code>interpolate</code> that spans the range of our content. In our case we&apos;ve defined it as <code>5000</code>, so this is slightly impracticle. But that&apos;s what <code>extrapolation</code> is for! In our case we&apos;ll clamp it but it might make sense to leave it as the default <code>extend</code> here.</p>
+<p>Now we use <a href="../api/EVENT.html">Animated.event</a> to map our event from the JSON, to the <code>contentOffset.y</code> which is the distance the user has scrolled. Then we can simply pass that into the <code>onScroll</code> and as the user scrolls it&apos;ll automatically call <code>setValue</code> on our <code>this._animatedValue</code> which will cause the <code>interpolate</code> to control the background color.</p>
+<p>The result would look something like this.</p>
+<p><img src="../images/AnimatedScrollBGChange.gif" alt="Simple Color Animation on Scroll"></p>
 
                     
                     </section>

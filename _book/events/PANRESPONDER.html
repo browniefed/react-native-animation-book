@@ -53,7 +53,7 @@
         data-chapter-title="PanResponder"
         data-filepath="events/PANRESPONDER.md"
         data-basepath=".."
-        data-revision="Mon Dec 07 2015 12:35:41 GMT-0800 (PST)"
+        data-revision="Wed Dec 09 2015 15:05:30 GMT-0800 (PST)"
         data-innerlanguage="">
     
 
@@ -557,21 +557,6 @@
             
         </li>
     
-        <li class="chapter " data-level="4.4" data-path="interpolation/CLAMP.html">
-            
-                
-                    <a href="../interpolation/CLAMP.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>4.4.</b>
-                        
-                        Clamp
-                    </a>
-            
-            
-        </li>
-    
 
             </ul>
             
@@ -845,6 +830,21 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="panresponder">PanResponder</h1>
+<p>The <code>PanResponder</code> is typically going to be used to control animations that cause various drag events to happen, or additionally to trigger animations to completion and terminate on a release.</p>
+<p>I&apos;d recommend reading <a href="http://facebook.github.io/react-native/docs/gesture-responder-system.html" target="_blank">Gesture Responder System</a> and then addtionally reading the documentation on <a href="http://facebook.github.io/react-native/docs/panresponder.html" target="_blank">PanResponder</a> before continuing.</p>
+<p>There are 3 main functions that we&apos;ll use for our animations. </p>
+<p>The first is <code>onPanResponderGrant</code>.
+This is typically going to be used as our setup. We may need to use <a href="../api/SETOFFSET.html">setOffset</a> in the case of dragging, but your use cases may vary for what you need to setup.</p>
+<p>The second is <code>onPanResponderMove</code>. 
+This is going to be called whenever a user moves their finger. In many cases it&apos;ll be for dragging with a single finger, however the event (first argument) will provide an array of all of the touch events that are currently happening. There could be more than 1! Typically you&apos;d use <a href="../api/EVENT.html">Animated.event</a> here, but if you need more complex logic (doing different animations based on number of touches currently happening), then this may be much more complex.</p>
+<p>Either way the gist is that it&apos;s typically going to be used to track a constant touch while a user is moving their finger.</p>
+<p>The third and final <code>onPanResponderRelease</code>. 
+This is typically where the analysis of the animation value and business logic might live. In the case of Tinder, on release we want to analyze the final position of the card we were dragging.
+If it reaches a certain threshold then we may want to trigger an <a href="../api/DECAY.html">Animated.decay</a> to continue the card throw, or if it doesn&apos;t reach our threshold we may want to reset the card position by animating it back to the middle. This may use a <a href="../api/TIMING.html">Animated.timing</a> or <a href="../api/SPRING.html">Animated.spring</a> to reset it back to `x:0, y:0.  Also commonly with drag animations <a href="../api/FLATTENOFFSET.html">flattenOffset</a> will be called.</p>
+<p>There are a few other cases for <code>onPanResponderRelease</code> that deal with stopping animations that may have been triggerd in <code>onPanResponderGrant</code> or also deciding on what to do based upon values of other animations that you may be listening on using <a href="../api/ANIMATED_ADDLISTENER.html">addListener</a>. </p>
+<p>There is another less common one that likely will not happen in lesser complex applications but it is <code>onPanResponderTerminate</code>. Similar to a release but as it is described in the documentaiton <code>&quot;Another component has become the responder, so this gesture should be cancelled&quot;</code>.</p>
+<p>A gesture may still be happening however it is not currently being handled by our <code>PanResponder</code>. Depending on your application you may just want to trigger the same stuff that happens on an <code>onPanResponderRelease</code> or at least the parts that deal with reseting the animation if that happens to be applicable.</p>
+<p>To see example code of all of this check out <a href="../api/SETOFFSET.html">setOffset</a>, <a href="../api/FLATTENOFFSET.html">flattenOffset</a>, and or check out the more complete <a href="../basic/DRAG.html">Basic Drag Animation</a> demo.</p>
 
                     
                     </section>

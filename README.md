@@ -2,17 +2,11 @@
 
 ## THIS IS A WORK IN PROGRESS
 
-If you would like to see specific things let me know.
+If you would like to see specific things let me know!
 
 TODO:
-
-* Clamp
-* PanResponder
-* Scroll
-
-* Basic Animations ( Some complete, need more basic animations)
-* Advanced Animations
-
+* Basic Animations ( Add more basic animations)
+* Advanced Animations (Add some)
 * Add gifs and live code examples where needed
 
 

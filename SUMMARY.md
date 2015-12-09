@@ -30,7 +30,6 @@
 	* [Colors](interpolation/COLORS.md)
 	* [Degrees/Radians (Rotation)](interpolation/DEGREES.md)
 	* [Scale / Mapping Values](interpolation/SCALE.md)
-	* [Clamp](interpolation/CLAMP.md)
 * [Handling Gestures / Events](GESTURES.md)
 	* [PanResponder](events/PANRESPONDER.md)
 	* [Scroll](events/SCROLL.md)

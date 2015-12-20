@@ -7,7 +7,7 @@ this._opacityAnimationValue = new Animated.Value(1);
 this._moveAnimationValue = new Animated.ValueXY();
 
 
-Animated.parallel([
+Animated.stagger(100, [
 	Animated.timing(this._moveAnimationValue, {
 		toValue: 100,
 		duration: 500
@@ -25,7 +25,7 @@ Our example here we have 2 animations. One that will control opacity, and the ot
 
 The first animation will move the View from `x: 0, y: 0` to `x: 100, y: 100`. This will happen over the `500` milliseconds.
 
-There will be a delay of `100` milliseconds. 
+There will be a delay of `100` milliseconds.
 
 Then our second animation will kick off and it will fade out the opacity from `1` to `0`.
 

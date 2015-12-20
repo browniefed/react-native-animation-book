@@ -82,7 +82,7 @@ This will cause it to flip! This is showing that when we hit our top level (movi
 
 #### Clamp/Identity
 
-How about when we do an `identity`? 
+How about when we do an `identity`?
 
 Well what that will do is bypass everything! Easings, etc. Once it hits the boundaries of your `inputRange` and `outputRange` whatever the input happens to be will become the value.
 
@@ -110,13 +110,13 @@ What will happen here is as we move right it will `clamp` at a scale of `2`. How
 
 ## Handy Technique - .99
 
-The Animated library and interpolation is great, but it does have some downfalls. Sometimes you want to in essense trigger a `setValue` but if you are specifying an `inputRange` and `outputRange` all of these values will be animated to. 
+The Animated library and interpolation is great, but it does have some downfalls. Sometimes you want to in essense trigger a `setValue` but if you are specifying an `inputRange` and `outputRange` all of these values will be animated to.
 
-In our opacity case it will always slowly step the animation down from `1` to `.2`. What if you want to have a drop off cliff. Like if the user moves it `75` it should immediately drop to `.2` opacity. 
+In our opacity case it will always slowly step the animation down from `1` to `.2`. What if you want to have a drop off cliff. Like if the user moves it `75` it should immediately drop to `.2` opacity.
 
-Well on technique is to define something at `.99` before your cutoff. So in our case the user can drag all the way up to `74.99` and it'll slowly fade out to `.8` opacity, however as soon as it creeps over from `74.99` to `75` it will immediately drop to `.2` opacity.
+Well one technique is to define something at `.99` before your cutoff. So in our case the user can drag all the way up to `74.99` and it'll slowly fade out to `.8` opacity, however as soon as it creeps over from `74.99` to `75` it will immediately drop to `.2` opacity.
 
-Code example 
+Code example
 
 ```
 this._opacityAnimation = this._animatedValue.x.interpolate({

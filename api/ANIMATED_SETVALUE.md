@@ -15,7 +15,7 @@ this._animatedValue.setValue(150);
 
 The `Animated.View` will immediately go from position left `0` to positoin let `150`. This will not iterate nicely from `0` to `150` as you must use other `Animated` functions to do so which we'll cover later.
 
-Something to not is that if `interpolate` is called to set up such things this will cause the correct value to be interpolated but not animated.
+Something to note is that if `interpolate` is called to set up such things this will cause the correct value to be interpolated but not animated.
 
 For Example
 

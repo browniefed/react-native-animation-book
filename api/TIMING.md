@@ -65,7 +65,7 @@ Animated.timing(this._animatedValue, {
 
 Animated.timing(this._animatedValue, {
 	toValue: 100,
-	easing: easing: Easing.elastic(2), // Springy
+	easing: Easing.elastic(2), // Springy
 	duration: 500
 }).start()
 

@@ -8,7 +8,7 @@ We do that by calling
 new Animated.Value(0)
 ```
 
-Typically we'll do this and set it on `state` however this can be called in `componentWillMount`, `constructor`, or really anywhere besides `render`.
+Typically we'll do this and set it on `state`. However, this can be called in `componentWillMount`, `constructor`, or really anywhere besides `render`.
 
 ```
 getInitialState: function() {
@@ -30,7 +30,7 @@ componentWillMount: function() {
 
 ```
 
-Creatinga  new `Animated.Value` goes through the process of setting everything up so that our `Animated.View` or similar components can read and attach listeners to the internal value that is being animated.
+Creating a new `Animated.Value` goes through the process of setting everything up so that our `Animated.View` or similar components can read and attach listeners to the internal value that is being animated.
 
 
 ## IMPORTANT

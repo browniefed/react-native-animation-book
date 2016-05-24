@@ -33,4 +33,4 @@ this._animatedValue.setValue(150);
 
 ```
 
-This will cause the `backgroundColor` of the `Animated.View` to immediately jump from white to black. Other `Animated` functions would transition from white to shades of gray and eventually black.
+This will cause the `backgroundColor` of the `Animated.View` to immediately jump from white to black. Other `Animated` functions would transition from white to shades of gray, and eventually to black.

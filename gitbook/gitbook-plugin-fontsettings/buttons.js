@@ -1,20 +1,20 @@
-require(["gitbook", "lodash", "jQuery"], function(gitbook, _, $) {
+require(['gitbook', 'jquery'], function(gitbook, $) {
     var fontState;
 
     var THEMES = {
-        "white": 0,
-        "sepia": 1,
-        "night": 2
+        'white': 0,
+        'sepia': 1,
+        'night': 2
     };
 
     var FAMILY = {
-        "serif": 0,
-        "sans": 1
+        'serif': 0,
+        'sans': 1
     };
 
     // Save current font settings
     function saveFontSettings() {
-        gitbook.storage.set("fontState", fontState);
+        gitbook.storage.set('fontState', fontState);
         update();
     }
 
@@ -25,7 +25,7 @@ require(["gitbook", "lodash", "jQuery"], function(gitbook, _, $) {
 
         fontState.size++;
         saveFontSettings();
-    };
+    }
 
     // Decrease font size
     function reduceFontSize(e) {
@@ -34,7 +34,7 @@ require(["gitbook", "lodash", "jQuery"], function(gitbook, _, $) {
 
         fontState.size--;
         saveFontSettings();
-    };
+    }
 
     // Change font family
     function changeFontFamily(index, e) {
@@ -42,59 +42,53 @@ require(["gitbook", "lodash", "jQuery"], function(gitbook, _, $) {
 
         fontState.family = index;
         saveFontSettings();
-    };
+    }
 
     // Change type of color
     function changeColorTheme(index, e) {
         e.preventDefault();
 
-        var $book = $(".book");
+        var $book = $('.book');
 
         if (fontState.theme !== 0)
-            $book.removeClass("color-theme-"+fontState.theme);
+            $book.removeClass('color-theme-'+fontState.theme);
 
         fontState.theme = index;
         if (fontState.theme !== 0)
-            $book.addClass("color-theme-"+fontState.theme);
+            $book.addClass('color-theme-'+fontState.theme);
 
         saveFontSettings();
-    };
+    }
 
     function update() {
         var $book = gitbook.state.$book;
 
-        $(".font-settings .font-family-list li").removeClass("active");
-        $(".font-settings .font-family-list li:nth-child("+(fontState.family+1)+")").addClass("active");
+        $('.font-settings .font-family-list li').removeClass('active');
+        $('.font-settings .font-family-list li:nth-child('+(fontState.family+1)+')').addClass('active');
 
         $book[0].className = $book[0].className.replace(/\bfont-\S+/g, '');
-        $book.addClass("font-size-"+fontState.size);
-        $book.addClass("font-family-"+fontState.family);
+        $book.addClass('font-size-'+fontState.size);
+        $book.addClass('font-family-'+fontState.family);
 
         if(fontState.theme !== 0) {
             $book[0].className = $book[0].className.replace(/\bcolor-theme-\S+/g, '');
-            $book.addClass("color-theme-"+fontState.theme);
+            $book.addClass('color-theme-'+fontState.theme);
         }
-    };
+    }
 
     function init(config) {
-        var $bookBody, $book;
-
-        //Find DOM elements.
-        $book = gitbook.state.$book;
-        $bookBody = $book.find(".book-body");
-
         // Instantiate font state object
-        fontState = gitbook.storage.get("fontState", {
+        fontState = gitbook.storage.get('fontState', {
             size: config.size || 2,
-            family: FAMILY[config.family || "sans"],
-            theme: THEMES[config.theme || "white"]
+            family: FAMILY[config.family || 'sans'],
+            theme: THEMES[config.theme || 'white']
         });
 
         update();
-    };
+    }
 
 
-    gitbook.events.bind("start", function(e, config) {
+    gitbook.events.bind('start', function(e, config) {
         var opts = config.fontsettings;
 
         // Create buttons in toolbar
@@ -118,25 +112,25 @@ require(["gitbook", "lodash", "jQuery"], function(gitbook, _, $) {
                 [
                     {
                         text: 'Serif',
-                        onClick: _.partial(changeFontFamily, 0)
+                        onClick: function(e) { return changeFontFamily(0, e); }
                     },
                     {
                         text: 'Sans',
-                        onClick: _.partial(changeFontFamily, 1)
+                        onClick: function(e) { return changeFontFamily(1, e); }
                     }
                 ],
                 [
                     {
                         text: 'White',
-                        onClick: _.partial(changeColorTheme, 0)
+                        onClick: function(e) { return changeColorTheme(0, e); }
                     },
                     {
                         text: 'Sepia',
-                        onClick: _.partial(changeColorTheme, 1)
+                        onClick: function(e) { return changeColorTheme(1, e); }
                     },
                     {
                         text: 'Night',
-                        onClick: _.partial(changeColorTheme, 2)
+                        onClick: function(e) { return changeColorTheme(2, e); }
                     }
                 ]
             ]

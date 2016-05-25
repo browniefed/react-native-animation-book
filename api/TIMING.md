@@ -2,6 +2,7 @@
 
 Animated timing allows for us to define an animation that takes a certain amount of time. It's most commonly used if you need to animate to a specific value over a set amount of time.
 
+For Example:
 ```
 this._animatedValue = new Animated.Value(0);
 
@@ -13,7 +14,7 @@ Animated.timing(this._animatedValue, {
 
 This will animate our `_animatedValue` from `0` to `100` over the course of `500` milliseconds.
 
-The `Animated.timing` config also takes 2 additional parameters, `easing`, and `delay`. The delay is most self explanatory, it will wait X number of milliseconds before triggering the animation.
+The `Animated.timing` config also takes 2 additional parameters, `easing`, and `delay`. The delay is most self explanatory, it will wait a number of milliseconds before triggering the animation:
 
 ```
 this._animatedValue = new Animated.Value(0);
@@ -33,8 +34,9 @@ This animation will wait `300` milliseconds before triggering and then take `500
 ![Simple Timing Move](images/SimpleTimingMove.gif)
 
 
-The other is `easing`, which if none is supplied defaults to `easeInOut`. Which isn't an option but is actually created like so `var easeInOut = Easing.inOut(Easing.ease);`
-To get access to a bunch of pre-defined easing functions you can require the `Easing` module like so. Some of these are functions that take functions that return functions, like the `easeInOut` up above.
+The  `easing` parameter defaults to `easeInOut`, which isn't actually an option but is created like so: `var easeInOut = Easing.inOut(Easing.ease);`.
+
+To get access to a bunch of pre-defined easing functions, you can require the `Easing` module from React:
 
 ```
 var React = require('react-native');
@@ -44,9 +46,9 @@ var {
 } = React;
 ```
 
-You can look at some of the provided easings here [https://github.com/facebook/react-native/blob/master/Libraries/Animated/src/Easing.js](https://github.com/facebook/react-native/blob/master/Libraries/Animated/src/Easing.js).
+You can look at some of the provided easings here: [https://github.com/facebook/react-native/blob/master/Libraries/Animated/src/Easing.js](https://github.com/facebook/react-native/blob/master/Libraries/Animated/src/Easing.js).
 
-If you do not like one of the provided easings you can write your own as it is a function that is provided a number, that returns a new number.
+Some of these are functions that take functions that return functions, like the `easeInOut` above:
 
 ```
 var React = require('react-native');
@@ -75,5 +77,7 @@ Animated.timing(this._animatedValue, {
 	duration: 500
 }).start()
 ```
+
+Additionally, if you do not like one of the provided easings, you can write your own as it is a function that is provided a number, and that returns a new number.
 
 Many more examples can be found here in the `AnimatedExample` of the `UIExplorer` [https://github.com/facebook/react-native/blob/master/Examples/UIExplorer/AnimatedExample.js](https://github.com/facebook/react-native/blob/master/Examples/UIExplorer/AnimatedExample.js).

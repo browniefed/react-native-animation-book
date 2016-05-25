@@ -1,8 +1,8 @@
 # getLayout
 
-This exists only on the `Animated.ValueXY` instance. The documentation explains it here [http://facebook.github.io/react-native/docs/animated.html#getlayout](http://facebook.github.io/react-native/docs/animated.html#getlayout).
+This method exists only on `Animated.ValueXY` instances. The documentation explains it here [http://facebook.github.io/react-native/docs/animated.html#getlayout](http://facebook.github.io/react-native/docs/animated.html#getlayout).
 
-This is a helper that just saves you some code. The equivalence of what it generates is something like so.
+This is a helper that just saves you some code. The equivalence of what it generates is something like so:
 
 ```
 this._animatedValue = new Animated.ValueXY();

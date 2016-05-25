@@ -4,7 +4,7 @@
 
 This will be how we trigger animations on any `Animated.timing`, `Animated.decay`, `Animated.spring`, as well as our animation combinators like `Animated.parallel`, `Animated.sequence` and `Animated.stagger`.
 
-Simple example
+A simple example:
 ```
 this._animatedValue = new Animated.Value(0);
 

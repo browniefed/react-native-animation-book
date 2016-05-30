@@ -9,7 +9,7 @@ this._animatedValue = new Animated.Value(0);
 Animated.timing(this._animatedValue, {
 	toValue: 100,
 	duration: 500
-})
+}).start()
 ```
 
 This will animate our `_animatedValue` from `0` to `100` over the course of `500` milliseconds.

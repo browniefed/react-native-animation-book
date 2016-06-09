@@ -775,7 +775,7 @@
                                 
                                 <h1 id="animateddecay">Animated.decay</h1>
 <p>The typical use of <code>decay</code> is to take something that may be moving at a particular velocity and apply deceleration to it. One such use case is throwing a card. The finger will cause the card to move at a sepcific velocity. We can use the velocity, apply it to our <code>decay</code> and bring the card to it&apos;s final position and make it look like a real flick happened.</p>
-<p>Without <code>decay</code> when someone flicks to release a card it would just stop wherever they last touched with their fingers. So most commonly this will be used with <code>PanResponder</code> and <code>Animated.ValueXY</code></p>
+<p>Without <code>decay</code>, when someone flicks to release a card, it would just stop wherever they last touched with their fingers. Most commonly, this will be used with <code>PanResponder</code> and <code>Animated.ValueXY</code>.</p>
 <pre><code>
 this._animatedValue = new Animated.ValueXY();
 
@@ -783,7 +783,7 @@ Animated.decay(this._animatedValue, {   // coast to a stop
     velocity: {x: gestureState.vx, y: gestureState.vy}, // velocity from gesture release
     deceleration: 0.997,
 })
-</code></pre><p>What does it look like in a real life example. Well thanks to Brent Vatne you can check out some real life code here <a href="https://github.com/brentvatne/react-native-animated-demo-tinder/blob/master/index.ios.js#L47" _target="blank">https://github.com/brentvatne/react-native-animated-demo-tinder/blob/master/index.ios.js#L47</a>.</p>
+</code></pre><p>What does it look like in a real life example? Well thanks to Brent Vatne you can check out some real life code here <a href="https://github.com/brentvatne/react-native-animated-demo-tinder/blob/master/index.ios.js#L47" _target="blank">https://github.com/brentvatne/react-native-animated-demo-tinder/blob/master/index.ios.js#L47</a>.</p>
 <pre><code>    this._panResponder = PanResponder.create({
       onMoveShouldSetResponderCapture: () =&gt; true,
       onMoveShouldSetPanResponderCapture: () =&gt; true,
@@ -820,7 +820,8 @@ Animated.decay(this._animatedValue, {   // coast to a stop
         }
       }
     })
-</code></pre><p>The main part to look at is. Now one thing here is DO NOT access <code>_value</code> like we are doing here. This is synchronous and we should be attaching an event listener but for the sake of example this will work.</p>
+</code></pre><p>Note: It would be much better to NOT access the Animated.Value&apos;s <code>_value</code> directly as in the example. This is synchronous access and can lead to performance issues. A much better approach would be to attach an event listener. However, for the sake of this example, this will work.</p>
+<p>The main part to look at is this function:</p>
 <pre><code>      onPanResponderRelease: (e, {vx, vy}) =&gt; {
 </code></pre><p>On the release we the second argument is the ending <code>gestureState</code>, we use destructing to pop off the velocities.</p>
 <pre><code>        if (Math.abs(this.state.pan.x._value) &gt; SWIPE_THRESHOLD) {
@@ -873,7 +874,7 @@ Animated.decay(this._animatedValue, {   // coast to a stop
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Animated.decay","level":"1.4.6","depth":2,"next":{"title":"Animated.sequence","level":"1.4.7","depth":2,"path":"api/SEQUENCE.md","ref":"api/SEQUENCE.md","articles":[]},"previous":{"title":"Animated.spring","level":"1.4.5","depth":2,"path":"api/SPRING.md","ref":"api/SPRING.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"api/DECAY.md","mtime":"2016-05-25T18:23:13.000Z","type":"markdown"},"gitbook":{"version":"3.0.1","time":"2016-05-25T18:25:18.519Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Animated.decay","level":"1.4.6","depth":2,"next":{"title":"Animated.sequence","level":"1.4.7","depth":2,"path":"api/SEQUENCE.md","ref":"api/SEQUENCE.md","articles":[]},"previous":{"title":"Animated.spring","level":"1.4.5","depth":2,"path":"api/SPRING.md","ref":"api/SPRING.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"api/DECAY.md","mtime":"2016-06-09T15:01:09.000Z","type":"markdown"},"gitbook":{"version":"3.0.1","time":"2016-06-09T15:01:24.994Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -881,10 +882,6 @@ Animated.decay(this._animatedValue, {   // coast to a stop
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>

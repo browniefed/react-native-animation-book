@@ -775,7 +775,7 @@
                                 
                                 <h1 id="setoffset">setOffset</h1>
 <p>Read documentation here <a href="http://facebook.github.io/react-native/docs/animated.html#setoffset" _target="blank">http://facebook.github.io/react-native/docs/animated.html#setoffset</a>.</p>
-<p><code>setOffset</code> is batched in with <code>Animated.ValueXY</code> although it also exists on <code>Animated.Value</code> however it is most typically used with <code>ValueXY</code>, <code>PanResponder</code> and the <code>onPanResponderGrant</code> call. </p>
+<p><code>setOffset</code> is grouped in with other <code>Animated.ValueXY</code> methods, although it also exists on <code>Animated.Value</code>, because it is most typically used with <code>ValueXY</code>, <code>PanResponder</code> and the <code>onPanResponderGrant</code> calls.</p>
 <p><code>setOffset</code> allows us to set a base value on top of what our animated value is. For example if you set an offset of <code>100</code> and our <code>Animated.Value</code> is <code>50</code>, then when the <code>Animated.View</code> requests the value it would be <code>150</code>.</p>
 <pre><code>  componentWillMount: function() {
     this._animatedValue = new Animated.ValueXY()
@@ -802,8 +802,8 @@
 // To use
 
 &lt;Animated.View style={[styles.box, {transform: this._animatedValue.getTranslateTransform()}]} {...this._panResponder.panHandlers} /&gt;
-</code></pre><h3 id="live-code-httpsrnplayorgappsmt0yq">Live Code <a href="https://rnplay.org/apps/m_t0yQ" _target="blank">https://rnplay.org/apps/m_t0yQ</a></h3>
-<p>In this context what <code>setOffset</code> is helping us accomplish is assigning the base offset to be the current position. We then clear the animated value and set it back to <code>x: 0, y: 0</code>. This allows us to utilize <code>dx</code> and <code>dy</code>, our delta movement so that no jumps happen when the user presses on the box to move it.</p>
+</code></pre><h3 id="live-code-examaple-httpsrnplayorgappsmt0yq">Live Code Examaple: <a href="https://rnplay.org/apps/m_t0yQ" _target="blank">https://rnplay.org/apps/m_t0yQ</a></h3>
+<p>In this context, <code>setOffset</code> is helping us accomplish in assigning the base offset to be the current position. We then clear the animated value and set it back to <code>x: 0, y: 0</code>. This allows us to utilize <code>dx</code> and <code>dy</code>, our delta movement, so that no jumps happen when the user presses on the box to move it.</p>
 
                                 
                                 </section>
@@ -847,7 +847,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"setOffset","level":"1.4.2.3","depth":3,"next":{"title":"flattenOffset","level":"1.4.2.4","depth":3,"path":"api/FLATTENOFFSET.md","ref":"api/FLATTENOFFSET.md","articles":[]},"previous":{"title":"getTranslateTransform","level":"1.4.2.2","depth":3,"path":"api/GETTRANSLATETRANSFORM.md","ref":"api/GETTRANSLATETRANSFORM.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"api/SETOFFSET.md","mtime":"2016-05-25T18:23:13.000Z","type":"markdown"},"gitbook":{"version":"3.0.1","time":"2016-05-25T18:25:18.519Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"setOffset","level":"1.4.2.3","depth":3,"next":{"title":"flattenOffset","level":"1.4.2.4","depth":3,"path":"api/FLATTENOFFSET.md","ref":"api/FLATTENOFFSET.md","articles":[]},"previous":{"title":"getTranslateTransform","level":"1.4.2.2","depth":3,"path":"api/GETTRANSLATETRANSFORM.md","ref":"api/GETTRANSLATETRANSFORM.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"api/SETOFFSET.md","mtime":"2016-06-09T15:01:09.000Z","type":"markdown"},"gitbook":{"version":"3.0.1","time":"2016-06-09T15:01:24.994Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -855,10 +855,6 @@
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>

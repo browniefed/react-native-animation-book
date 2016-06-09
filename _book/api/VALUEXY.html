@@ -775,9 +775,9 @@
                                 
                                 <h1 id="animatedvaluexy">Animated.ValueXY</h1>
 <p>Creating a <code>new Animated.ValueXY({x: 0, y: 0})</code> is almost exactly the same as <code>Animated.Value</code> with a few exceptions. The <code>ValueXY</code> are often used to help with position of components and or when you&apos;re dealing with gestures.</p>
-<p>A few additional helper methods are added that make it easy to pass appropriate animated values to <code>left/top</code>, as well as <code>translateX/transalteY</code>. There are other helpers to help dealing with gestures and such so there is no jump when users press down first (that&apos;s solved with setOffset).</p>
-<p><code>Animated.ValueXY()</code> is an instance that adds those additional helper methods, but also exposes <code>.x</code> and <code>.y</code>. The <code>.x</code> and <code>.y</code> are merely <code>new Animated.Value()</code> instances.</p>
-<p>You&apos;d do just the same to create them as you would <code>new Animated.Value()</code></p>
+<p>A few additional helper methods are added that make it easy to pass appropriate animated values to <code>left/top</code>, as well as <code>translateX/transalteY</code>. There are other helpers for dealing with gestures and such so there is no jump when users press down first (that&apos;s solved with setOffset).</p>
+<p><code>Animated.ValueXY()</code> is an instance that adds those additional helper methods, but also exposes <code>.x</code> and <code>.y</code> attributes. The <code>.x</code> and <code>.y</code> are merely <code>new Animated.Value()</code> instances.</p>
+<p>You create them just the same as you would <code>new Animated.Value()</code>:</p>
 <pre><code>getInitialState: function() {
     return {
         someAnimatedValue: new Animate.ValueXY()
@@ -794,7 +794,7 @@ constructor(props) {
 componentWillMount: function() {
     this._someAnimatedValue = new Animated.ValueXY()
 }
-</code></pre><p>They default to <code>{x: 0, y:0}</code>, however if you want to change the default values you can pass in an object like so <code>new Animated.ValueXY({x: 15, y: 15})</code> which would set the default internal <code>Animated.Value</code>s to <code>15</code>.</p>
+</code></pre><p>They default to <code>{x: 0, y:0}</code>. However, if you want to change the default values, you can pass in an object, such as <code>new Animated.ValueXY({x: 15, y: 15})</code>, which would set the default internal <code>Animated.Value</code>s both to <code>15</code>.</p>
 
                                 
                                 </section>
@@ -838,7 +838,7 @@ componentWillMount: function() {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Animated.ValueXY","level":"1.4.2","depth":2,"next":{"title":"getLayout","level":"1.4.2.1","depth":3,"path":"api/GETLAYOUT.md","ref":"api/GETLAYOUT.md","articles":[]},"previous":{"title":"stopAnimation","level":"1.4.1.5","depth":3,"path":"api/ANIMATED_STOPANIMATION.md","ref":"api/ANIMATED_STOPANIMATION.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"api/VALUEXY.md","mtime":"2016-05-25T18:23:13.000Z","type":"markdown"},"gitbook":{"version":"3.0.1","time":"2016-05-25T18:25:18.519Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Animated.ValueXY","level":"1.4.2","depth":2,"next":{"title":"getLayout","level":"1.4.2.1","depth":3,"path":"api/GETLAYOUT.md","ref":"api/GETLAYOUT.md","articles":[]},"previous":{"title":"stopAnimation","level":"1.4.1.5","depth":3,"path":"api/ANIMATED_STOPANIMATION.md","ref":"api/ANIMATED_STOPANIMATION.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"api/VALUEXY.md","mtime":"2016-06-09T15:01:09.000Z","type":"markdown"},"gitbook":{"version":"3.0.1","time":"2016-06-09T15:01:24.994Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -846,10 +846,6 @@ componentWillMount: function() {
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>

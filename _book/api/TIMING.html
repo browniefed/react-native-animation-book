@@ -775,14 +775,15 @@
                                 
                                 <h1 id="animatedtiming">Animated.timing</h1>
 <p>Animated timing allows for us to define an animation that takes a certain amount of time. It&apos;s most commonly used if you need to animate to a specific value over a set amount of time.</p>
+<p>For Example:</p>
 <pre><code>this._animatedValue = new Animated.Value(0);
 
 Animated.timing(this._animatedValue, {
     toValue: 100,
     duration: 500
-})
+}).start()
 </code></pre><p>This will animate our <code>_animatedValue</code> from <code>0</code> to <code>100</code> over the course of <code>500</code> milliseconds.</p>
-<p>The <code>Animated.timing</code> config also takes 2 additional parameters, <code>easing</code>, and <code>delay</code>. The delay is most self explanatory, it will wait X number of milliseconds before triggering the animation.</p>
+<p>The <code>Animated.timing</code> config also takes 2 additional parameters, <code>easing</code>, and <code>delay</code>. The delay is most self explanatory, it will wait a number of milliseconds before triggering the animation:</p>
 <pre><code>this._animatedValue = new Animated.Value(0);
 
 Animated.timing(this._animatedValue, {
@@ -793,15 +794,15 @@ Animated.timing(this._animatedValue, {
 </code></pre><p>This animation will wait <code>300</code> milliseconds before triggering and then take <code>500</code> milliseconds to animate from <code>0</code> to <code>100</code>. The total time of animation will be <code>800</code> milliseconds.</p>
 <h4 id="live-code-httpsrnplayorgappsbh9t8q">Live Code <a href="https://rnplay.org/apps/BH9T8Q" _target="blank">https://rnplay.org/apps/BH9T8Q</a></h4>
 <p><img src="images/SimpleTimingMove.gif" alt="Simple Timing Move"></p>
-<p>The other is <code>easing</code>, which if none is supplied defaults to <code>easeInOut</code>. Which isn&apos;t an option but is actually created like so <code>var easeInOut = Easing.inOut(Easing.ease);</code>
-To get access to a bunch of pre-defined easing functions you can require the <code>Easing</code> module like so. Some of these are functions that take functions that return functions, like the <code>easeInOut</code> up above.</p>
+<p>The  <code>easing</code> parameter defaults to <code>easeInOut</code>, which isn&apos;t actually an option but is created like so: <code>var easeInOut = Easing.inOut(Easing.ease);</code>.</p>
+<p>To get access to a bunch of pre-defined easing functions, you can require the <code>Easing</code> module from React:</p>
 <pre><code>var React = require(&apos;react-native&apos;);
 
 var {
   Easing
 } = React;
-</code></pre><p>You can look at some of the provided easings here <a href="https://github.com/facebook/react-native/blob/master/Libraries/Animated/src/Easing.js" _target="blank">https://github.com/facebook/react-native/blob/master/Libraries/Animated/src/Easing.js</a>.</p>
-<p>If you do not like one of the provided easings you can write your own as it is a function that is provided a number, that returns a new number.</p>
+</code></pre><p>You can look at some of the provided easings here: <a href="https://github.com/facebook/react-native/blob/master/Libraries/Animated/src/Easing.js" _target="blank">https://github.com/facebook/react-native/blob/master/Libraries/Animated/src/Easing.js</a>.</p>
+<p>Some of these are functions that take functions that return functions, like the <code>easeInOut</code> above:</p>
 <pre><code>var React = require(&apos;react-native&apos;);
 
 var {
@@ -827,7 +828,8 @@ Animated.timing(this._animatedValue, {
     easing: Easing.bounce, // Like a ball
     duration: 500
 }).start()
-</code></pre><p>Many more examples can be found here in the <code>AnimatedExample</code> of the <code>UIExplorer</code> <a href="https://github.com/facebook/react-native/blob/master/Examples/UIExplorer/AnimatedExample.js" _target="blank">https://github.com/facebook/react-native/blob/master/Examples/UIExplorer/AnimatedExample.js</a>.</p>
+</code></pre><p>Additionally, if you do not like one of the provided easings, you can write your own as it is a function that is provided a number, and that returns a new number.</p>
+<p>Many more examples can be found here in the <code>AnimatedExample</code> of the <code>UIExplorer</code> <a href="https://github.com/facebook/react-native/blob/master/Examples/UIExplorer/AnimatedExample.js" _target="blank">https://github.com/facebook/react-native/blob/master/Examples/UIExplorer/AnimatedExample.js</a>.</p>
 
                                 
                                 </section>
@@ -871,7 +873,7 @@ Animated.timing(this._animatedValue, {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Animated.timing","level":"1.4.4","depth":2,"next":{"title":"Animated.spring","level":"1.4.5","depth":2,"path":"api/SPRING.md","ref":"api/SPRING.md","articles":[]},"previous":{"title":"start","level":"1.4.3","depth":2,"path":"api/START.md","ref":"api/START.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"api/TIMING.md","mtime":"2016-05-25T18:23:13.000Z","type":"markdown"},"gitbook":{"version":"3.0.1","time":"2016-05-25T18:25:18.519Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Animated.timing","level":"1.4.4","depth":2,"next":{"title":"Animated.spring","level":"1.4.5","depth":2,"path":"api/SPRING.md","ref":"api/SPRING.md","articles":[]},"previous":{"title":"start","level":"1.4.3","depth":2,"path":"api/START.md","ref":"api/START.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"api/TIMING.md","mtime":"2016-06-09T15:01:09.000Z","type":"markdown"},"gitbook":{"version":"3.0.1","time":"2016-06-09T15:01:24.994Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -879,10 +881,6 @@ Animated.timing(this._animatedValue, {
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>

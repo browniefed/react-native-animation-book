@@ -775,15 +775,15 @@
                                 
                                 <h1 id="setvalue">setValue</h1>
 <p><code>setValue</code> is a function exposed on the <code>new Animated.Value()</code> instance. It allows for external code to control the internal value of the instance without triggering animations of intermediary states.</p>
-<p>For example.</p>
+<p>For example:</p>
 <pre><code>this._animatedValue = new Animated.Value(0);
 
 &lt;Animated.View style={{left: this._animatedValue}} /&gt;
 
 this._animatedValue.setValue(150);
-</code></pre><p>The <code>Animated.View</code> will immediately go from position left <code>0</code> to positoin let <code>150</code>. This will not iterate nicely from <code>0</code> to <code>150</code> as you must use other <code>Animated</code> functions to do so which we&apos;ll cover later.</p>
-<p>Something to note is that if <code>interpolate</code> is called to set up such things this will cause the correct value to be interpolated but not animated.</p>
-<p>For Example</p>
+</code></pre><p>The <code>Animated.View</code> will immediately jump from position left <code>0</code> to positoin left <code>150</code> and will not iterate nicely from <code>0</code> to <code>150</code>. You must use other <code>Animated</code> functions to do so, which we&apos;ll cover later.</p>
+<p>Something to note is that if <code>interpolate</code> is called to set up such things, this will cause the correct value to be interpolated but not animated.</p>
+<p>For Example:</p>
 <pre><code>this._animatedValue = new Animated.Value(0);
 
 var _backgroundColor = this._animatedValue.interpolate({
@@ -794,7 +794,7 @@ var _backgroundColor = this._animatedValue.interpolate({
 &lt;Animated.View style={{left: this._animatedValue, backgroundColor: _backgroundColor}} /&gt;
 
 this._animatedValue.setValue(150);
-</code></pre><p>This will cause the <code>backgroundColor</code> of the <code>Animated.View</code> immediately jump from white to black. With other <code>Animated</code> functions that actually cause transitions, this would transition from <code>white</code> to shades of gray and eventually black.</p>
+</code></pre><p>This will cause the <code>backgroundColor</code> of the <code>Animated.View</code> to immediately jump from white to black. Other <code>Animated</code> functions would transition from white to shades of gray, and eventually to black.</p>
 
                                 
                                 </section>
@@ -838,7 +838,7 @@ this._animatedValue.setValue(150);
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"setValue","level":"1.4.1.1","depth":3,"next":{"title":"interpolate","level":"1.4.1.2","depth":3,"path":"api/ANIMATED_INTERPOLATION.md","ref":"api/ANIMATED_INTERPOLATION.md","articles":[]},"previous":{"title":"Animated.Value","level":"1.4.1","depth":2,"path":"api/VALUE.md","ref":"api/VALUE.md","articles":[{"title":"setValue","level":"1.4.1.1","depth":3,"path":"api/ANIMATED_SETVALUE.md","ref":"api/ANIMATED_SETVALUE.md","articles":[]},{"title":"interpolate","level":"1.4.1.2","depth":3,"path":"api/ANIMATED_INTERPOLATION.md","ref":"api/ANIMATED_INTERPOLATION.md","articles":[]},{"title":"addListener","level":"1.4.1.3","depth":3,"path":"api/ANIMATED_ADDLISTENER.md","ref":"api/ANIMATED_ADDLISTENER.md","articles":[]},{"title":"removeListener/removeAllListeners","level":"1.4.1.4","depth":3,"path":"api/ANIMATED_REMOVE_LISTENERS.md","ref":"api/ANIMATED_REMOVE_LISTENERS.md","articles":[]},{"title":"stopAnimation","level":"1.4.1.5","depth":3,"path":"api/ANIMATED_STOPANIMATION.md","ref":"api/ANIMATED_STOPANIMATION.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"api/ANIMATED_SETVALUE.md","mtime":"2016-05-25T18:23:13.000Z","type":"markdown"},"gitbook":{"version":"3.0.1","time":"2016-05-25T18:25:18.519Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"setValue","level":"1.4.1.1","depth":3,"next":{"title":"interpolate","level":"1.4.1.2","depth":3,"path":"api/ANIMATED_INTERPOLATION.md","ref":"api/ANIMATED_INTERPOLATION.md","articles":[]},"previous":{"title":"Animated.Value","level":"1.4.1","depth":2,"path":"api/VALUE.md","ref":"api/VALUE.md","articles":[{"title":"setValue","level":"1.4.1.1","depth":3,"path":"api/ANIMATED_SETVALUE.md","ref":"api/ANIMATED_SETVALUE.md","articles":[]},{"title":"interpolate","level":"1.4.1.2","depth":3,"path":"api/ANIMATED_INTERPOLATION.md","ref":"api/ANIMATED_INTERPOLATION.md","articles":[]},{"title":"addListener","level":"1.4.1.3","depth":3,"path":"api/ANIMATED_ADDLISTENER.md","ref":"api/ANIMATED_ADDLISTENER.md","articles":[]},{"title":"removeListener/removeAllListeners","level":"1.4.1.4","depth":3,"path":"api/ANIMATED_REMOVE_LISTENERS.md","ref":"api/ANIMATED_REMOVE_LISTENERS.md","articles":[]},{"title":"stopAnimation","level":"1.4.1.5","depth":3,"path":"api/ANIMATED_STOPANIMATION.md","ref":"api/ANIMATED_STOPANIMATION.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"api/ANIMATED_SETVALUE.md","mtime":"2016-06-09T15:01:09.000Z","type":"markdown"},"gitbook":{"version":"3.0.1","time":"2016-06-09T15:01:24.994Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -846,10 +846,6 @@ this._animatedValue.setValue(150);
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>

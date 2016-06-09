@@ -2,7 +2,7 @@
 
 Read documentation here [http://facebook.github.io/react-native/docs/animated.html#setoffset](http://facebook.github.io/react-native/docs/animated.html#setoffset).
 
-`setOffset` is batched in with `Animated.ValueXY` although it also exists on `Animated.Value` however it is most typically used with `ValueXY`, `PanResponder` and the `onPanResponderGrant` call. 
+`setOffset` is grouped in with other `Animated.ValueXY` methods, although it also exists on `Animated.Value`, because it is most typically used with `ValueXY`, `PanResponder` and the `onPanResponderGrant` calls.
 
 `setOffset` allows us to set a base value on top of what our animated value is. For example if you set an offset of `100` and our `Animated.Value` is `50`, then when the `Animated.View` requests the value it would be `150`.
 
@@ -35,6 +35,6 @@ Read documentation here [http://facebook.github.io/react-native/docs/animated.ht
 
 ```
 
-### Live Code [https://rnplay.org/apps/m_t0yQ](https://rnplay.org/apps/m_t0yQ)
+### Live Code Examaple: [https://rnplay.org/apps/m_t0yQ](https://rnplay.org/apps/m_t0yQ)
 
-In this context what `setOffset` is helping us accomplish is assigning the base offset to be the current position. We then clear the animated value and set it back to `x: 0, y: 0`. This allows us to utilize `dx` and `dy`, our delta movement so that no jumps happen when the user presses on the box to move it.
+In this context, `setOffset` is helping us accomplish in assigning the base offset to be the current position. We then clear the animated value and set it back to `x: 0, y: 0`. This allows us to utilize `dx` and `dy`, our delta movement, so that no jumps happen when the user presses on the box to move it.

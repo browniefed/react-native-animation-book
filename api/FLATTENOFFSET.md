@@ -2,9 +2,9 @@
 
 Read the documentation here [http://facebook.github.io/react-native/docs/animated.html#flattenoffset](http://facebook.github.io/react-native/docs/animated.html#flattenoffset).
 
-`flattenOffset` like `setOffset` is batched in with `Animated.ValueXY` as it is going to typically be used when dealing with `PanResponder`, and called in the `onPanResponderRelease` function.
+`flattenOffset`, like `setOffset`, is grouped with other `Animated.ValueXY` methods because it is going to typically be used when dealing with `PanResponder`, and called in the `onPanResponderRelease` function.
 
-`flattenOffset` will take whatever values are in the offset and add them to the base animated value, and then reset the offset to `0`. So for example if we had an offset of `100` and our `Animated.Value` is `50`. When we call `flattenOffset` our offset will become `0` and our `Animated.Value` will become `150`.
+`flattenOffset` will take whatever values are in the offset and add them to the base animated value, and then reset the offset to `0`. For example, if we had an offset of `100` and our `Animated.Value` is `50`, when we call `flattenOffset`, our offset will become `0` and our `Animated.Value` will become `150`.
 
 ```
   componentWillMount: function() {
@@ -38,4 +38,4 @@ Read the documentation here [http://facebook.github.io/react-native/docs/animate
 ### Live Code [https://rnplay.org/apps/m_t0yQ](https://rnplay.org/apps/m_t0yQ)
 
 
-In this context `flattenOffset` is taking what ever is set in the offset and merging it in with the animated value. We use `flattenOffset` to reset our offset back to `x: 0, y: 0`. Because we reset our offset and our animated value in the `onPanResponderGrant` the call to `flattenOffset` is unnecessary, however in the case where we want to trigger an animation from the released location to another location `flattenOffset` is required.
+In this context, `flattenOffset` is taking what ever is set in the offset and merging it in with the animated value. We use `flattenOffset` to reset our offset back to `x: 0, y: 0`. Because we reset our offset and our animated value in the `onPanResponderGrant`, the call to `flattenOffset` is unnecessary, here. However, in the case where we want to trigger an animation from the released location to another location, `flattenOffset` is required.

@@ -8,7 +8,7 @@ We do that by calling
 new Animated.Value(0)
 ```
 
-Typically we'll do this and set it on `state` however this can be called in `componentWillMount`, `constructor`, or really anywhere besides `render`.
+Typically we'll do this and set it on `state`. However, this can be called in `componentWillMount`, `constructor`, or really anywhere besides `render`.
 
 ```
 getInitialState: function() {

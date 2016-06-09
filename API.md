@@ -4,7 +4,7 @@ Here we'll dive into the API of `Animated` and all the various functions, code e
 
 Link to documentation [http://facebook.github.io/react-native/docs/animated.html#content](http://facebook.github.io/react-native/docs/animated.html#content)
 
-To get access to it simple pull it off of your `react-native` require like so.
+To get access to it simple pull it off of your `react-native` require like so:
 
 ```
 var React = require('react-native');
@@ -16,6 +16,6 @@ var {
 
 ```
 
-By default `Animated` gives us access to 3 animatable components.
+By default, `Animated` gives us access to 3 animatable components: `Animated.View`, `Animated.Text` and `Animated.Image`.
 
-`Animated.View`, `Animated.Text` and `Animated.Image`, however later we'll cover how any component can become animatable.
+Later we'll cover how any component can become animatable.

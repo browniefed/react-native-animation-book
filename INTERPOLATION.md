@@ -1,4 +1,4 @@
-# Inerpolation
+# Interpolation
 
 Interpolation is KEY to having great animations. There are many ways to interpolate and we'll cover as many as we can here.
 

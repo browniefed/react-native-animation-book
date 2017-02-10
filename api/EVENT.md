@@ -16,7 +16,7 @@ Example of `PanResponder`
  What is happening here is that the `onPanResponderMove` calls it's function with 2 params. We are ignoring the raw event, which is the first argument, thus we pass null.
  The second argument is the `gestureState` which provides some helpful values, in our case `dx` and `dy`. Which are deltas (aka the changes) in how far the user has moved their finger from the beginning of the touch.
 
- We pass in our 2 animated values from an `Animated.ValueXY` which our `Animated.event` will take that configuration, traverse it, find the Animated values and call `setValue` for us. Effectively whne the user moves their finger our Animated values will be the delta positions.
+ We pass in our 2 animated values from an `Animated.ValueXY` which our `Animated.event` will take that configuration, traverse it, find the Animated values and call `setValue` for us. Effectively when the user moves their finger our Animated values will be the delta positions.
 
  This could then be passed into a `translateX/translateY`
 

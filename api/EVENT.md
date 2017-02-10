@@ -28,6 +28,6 @@ Example of `PanResponder`
  onScroll={Animated.event(
    [{nativeEvent: {contentOffset: {x: this._scrollX}}}]
    {listener},          // Optional async listener
- )
+ )}
 ```
 Additionally you can define a callback listener as the second argument to `Animated.event`.

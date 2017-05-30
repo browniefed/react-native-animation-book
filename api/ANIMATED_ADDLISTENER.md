@@ -5,22 +5,24 @@ Animation is asynchronous, but in some cases you may want to keep track of what 
 With `addListener` that is possible.
 
 Some basic example code:
+
 ```
 this._animatedValue = new Animated.Value(0);
 
 this._animatedValue.addListener(({value}) => this._value = value);
 
 Animated.timing(this._animatedValue, {
-	toValue: 100,
-	duration: 500
+    toValue: 100,
+    duration: 500
 }).start();
-``` 
+```
 
 ## Synchronous Value?
-Many people may be wondering if they can get the value synchronously. The answer is yes, no, and well you shouldn't.
+
+Many people may be wondering if they can get the value synchronously. The answer is yes, no, and well you shouldn't.  
 Previously you could call `getAnimatedValue()` or access the internal value of the `Animated.Value`. However, this is bad practice. The current implementation of `Animated` is implemented in the JavaScript world, but there are plans to move it from the JavaScript world to the native world for performance reasons.
 
-Thus, accessing the animated value synchronously is frowned upon. It is a little more verbose but attaching a listener is the recommended way. Unfortunately, at the moment, you cannot attach a listener to interpolated values.
-
+Thus, accessing the animated value synchronously is frowned upon. It is a little more verbose but attaching a listener is the recommended way. 
 
 ** IF YOU ATTACH A LISTENER DO NOT FORGET TO REMOVE IT **
+

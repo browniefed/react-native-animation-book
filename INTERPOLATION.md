@@ -14,8 +14,8 @@ You could accomplish that like so
 this._animatedValue = new Animated.ValueXY();
 
 this._opacityAnimation = this._animatedValue.x.interpolate({
-	inputRange: [0, 150],
-	outputRange: [1, .2]
+    inputRange: [0, 150],
+    outputRange: [1, .2]
 });
 ```
 
@@ -25,19 +25,19 @@ So when our `x` value is 0, our interpolated opacity value will be `1`, at `150`
 
 You may be thinking to yourself, well what if the user moves the card more than `150`? Well some users may think it will automatically stop and our `_opacityAnimation` will stay at `.2`. That isn't the case be default.
 
-You must specify how the interpolation should be extrapolated. If you want it to stop at `.2` no matter how far the `x` goes than you must specify `extrapolate:'clamp'` like os.
+You must specify how the interpolation should be extrapolated. If you want it to stop at `.2` no matter how far the `x` goes than you must specify `extrapolate:'clamp'` like so.
 
 ```
 this._opacityAnimation = this._animatedValue.x.interpolate({
-	inputRange: [0, 150],
-	outputRange: [1, .2],
-	extrapolate: 'clamp'
+    inputRange: [0, 150],
+    outputRange: [1, .2],
+    extrapolate: 'clamp'
 });
 ```
 
 Clamp is VERY IMPORTANT to remember as you may have unintended side effects, especially when dealing with colors and rotation.
 
-Additioanlly you must pass in the same amount of values in `inputRange` and `outputRange`. This can be weird as you may find yourself duplicating some values in `outputRange` occasionally. I've mostly run into this sort of thing when dealing with colors.
+Additionally you must pass in the same amount of values in `inputRange` and `outputRange`. This can be weird as you may find yourself duplicating some values in `outputRange` occasionally. I've mostly run into this sort of thing when dealing with colors.
 
 ## Extrapolate
 
@@ -72,9 +72,9 @@ var scaleAndFlipOnReverse = this._animatedValue.y.interpolate({
 <Animated.View style={{transform: [{scale: scaleAndFlipOnReverse}]}} />
 ```
 
-So assume a user is dragging a sqaure, and if the square is moved from the `0` postion to `100` then it will quickly scale the the square from `.1` to `2` ( double its full size) and stop.
-However if we go in the reverse direction and drag it back from `100` down to `0` positin and then beyond it will continue to scale down and to a negative value eventually.
-This will cause it to flip! This is showing that when we hit our top level (moving to the right) it will `clamp` and then moving downwards (towars the left) it will just extend and grow.
+So assume a user is dragging a square, and if the square is moved from the `0` postion to `100` then it will quickly scale the square from `.1` to `2` \( double its full size\) and stop.  
+However if we go in the reverse direction and drag it back from `100` down to `0` position and then beyond it will continue to scale down and to a negative value eventually.  
+This will cause it to flip! This is showing that when we hit our top level \(moving to the right\) it will `clamp` and then moving downwards \(towars the left\) it will just extend and grow.
 
 ![Extrapolate Animation](images/ExtrapolateAnimation.gif)
 
@@ -105,9 +105,6 @@ What will happen here is as we move right it will `clamp` at a scale of `2`. How
 
 ##### Live Code [https://rnplay.org/apps/Bmya8g](https://rnplay.org/apps/Bmya8g)
 
-
-
-
 ## Handy Technique - .99
 
 The Animated library and interpolation is great, but it does have some downfalls. Sometimes you want to in essense trigger a `setValue` but if you are specifying an `inputRange` and `outputRange` all of these values will be animated to.
@@ -120,10 +117,11 @@ Code example
 
 ```
 this._opacityAnimation = this._animatedValue.x.interpolate({
-	inputRange: [0, 74.99, 75],
-	outputRange: [1, .8, .2],
-	extrapolate: 'clamp'
+    inputRange: [0, 74.99, 75],
+    outputRange: [1, .8, .2],
+    extrapolate: 'clamp'
 });
 ```
 
 This shows how flexible and inflexible the `Animated` library is. However it's a pseudo hacky way to define arbitrary ranges of values.
+

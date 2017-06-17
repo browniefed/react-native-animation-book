@@ -7,5 +7,5 @@
 
 # Code Examples
 
-* [Animation Example](https://github.com/facebook/react-native/blob/master/Examples/UIExplorer/AnimatedExample.js)
-* [Gratuitous Animation Examples](https://github.com/facebook/react-native/tree/master/Examples/UIExplorer/AnimatedGratuitousApp)
+* [Animation Example](https://github.com/facebook/react-native/blob/master/RNTester/js/NativeAnimationsExample.js)
+* [Gratuitous Animation Examples](https://github.com/facebook/react-native/tree/master/RNTester/js/AnimatedGratuitousApp)

@@ -22,7 +22,7 @@ Animated.timing(this._animatedValue, {
 Many people may be wondering if they can get the value synchronously. The answer is yes, no, and well you shouldn't.  
 Previously you could call `getAnimatedValue()` or access the internal value of the `Animated.Value`. However, this is bad practice. The current implementation of `Animated` is implemented in the JavaScript world, but there are plans to move it from the JavaScript world to the native world for performance reasons.
 
-Thus, accessing the animated value synchronously is frowned upon. It is a little more verbose but attaching a listener is the recommended way. 
+Thus, accessing the animated value synchronously is frowned upon. It is a little more verbose but attaching a listener is the recommended way. Unfortunately, at the moment, you cannot attach a listener to interpolated values.
 
 ** IF YOU ATTACH A LISTENER DO NOT FORGET TO REMOVE IT **
 

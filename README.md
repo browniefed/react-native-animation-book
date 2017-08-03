@@ -17,7 +17,7 @@ TODO:
 
 ## Introduction
 
-React Native has had a fantastic reception. There have already been a ton of great applications built using React Native. However one hugely important part of mobile applications is animations. React on the web has generally been pretty poor at dealing with animations, however there are some great people out their attempting to solve this problem. One such solution is `react-motion` [https://github.com/chenglou/react-motion/](https://github.com/chenglou/react-motion/).
+React Native has had a fantastic reception. There have already been a ton of great applications built using React Native. However one hugely important part of mobile applications is animations. React on the web has generally been pretty poor at dealing with animations, but there are some great people out there attempting to solve this problem. One such solution is `react-motion` [https://github.com/chenglou/react-motion/](https://github.com/chenglou/react-motion/).
 
 However `react-motion` utilizes `setState` which if you are animating components with signifcant amounts of children will cause a lot of diffing. Christopher Chedeau then gave a talk at React Rally, which you should watch here [Christopher Chedeau - Animated](https://www.youtube.com/watch?v=xtqUJVqpKNo). Additionally follow along with the slides here [https://speakerdeck.com/vjeux/react-rally-animated-react-performance-toolbox](https://speakerdeck.com/vjeux/react-rally-animated-react-performance-toolbox).
 

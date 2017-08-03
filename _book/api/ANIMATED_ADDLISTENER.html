@@ -2,12 +2,12 @@
 <!DOCTYPE HTML>
 <html lang="" >
     <head>
-        <title>addListener · GitBook</title>
         <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>addListener · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.0.1">
+        <meta name="generator" content="GitBook 3.2.2">
         
         
         
@@ -786,8 +786,7 @@ Animated.timing(this._animatedValue, {
     duration: 500
 }).start();
 </code></pre><h2 id="synchronous-value">Synchronous Value?</h2>
-<p>Many people may be wondering if they can get the value synchronously. The answer is yes, no, and well you shouldn&apos;t.
-Previously you could call <code>getAnimatedValue()</code> or access the internal value of the <code>Animated.Value</code>. However, this is bad practice. The current implementation of <code>Animated</code> is implemented in the JavaScript world, but there are plans to move it from the JavaScript world to the native world for performance reasons.</p>
+<p>Many people may be wondering if they can get the value synchronously. The answer is yes, no, and well you shouldn&apos;t.<br>Previously you could call <code>getAnimatedValue()</code> or access the internal value of the <code>Animated.Value</code>. However, this is bad practice. The current implementation of <code>Animated</code> is implemented in the JavaScript world, but there are plans to move it from the JavaScript world to the native world for performance reasons.</p>
 <p>Thus, accessing the animated value synchronously is frowned upon. It is a little more verbose but attaching a listener is the recommended way. Unfortunately, at the moment, you cannot attach a listener to interpolated values.</p>
 <p><strong> IF YOU ATTACH A LISTENER DO NOT FORGET TO REMOVE IT </strong></p>
 
@@ -833,7 +832,7 @@ Previously you could call <code>getAnimatedValue()</code> or access the internal
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"addListener","level":"1.4.1.3","depth":3,"next":{"title":"removeListener/removeAllListeners","level":"1.4.1.4","depth":3,"path":"api/ANIMATED_REMOVE_LISTENERS.md","ref":"api/ANIMATED_REMOVE_LISTENERS.md","articles":[]},"previous":{"title":"interpolate","level":"1.4.1.2","depth":3,"path":"api/ANIMATED_INTERPOLATION.md","ref":"api/ANIMATED_INTERPOLATION.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"api/ANIMATED_ADDLISTENER.md","mtime":"2016-06-09T15:01:09.000Z","type":"markdown"},"gitbook":{"version":"3.0.1","time":"2017-02-10T16:15:19.408Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"addListener","level":"1.4.1.3","depth":3,"next":{"title":"removeListener/removeAllListeners","level":"1.4.1.4","depth":3,"path":"api/ANIMATED_REMOVE_LISTENERS.md","ref":"api/ANIMATED_REMOVE_LISTENERS.md","articles":[]},"previous":{"title":"interpolate","level":"1.4.1.2","depth":3,"path":"api/ANIMATED_INTERPOLATION.md","ref":"api/ANIMATED_INTERPOLATION.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"api/ANIMATED_ADDLISTENER.md","mtime":"2017-08-03T18:51:38.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-03T18:56:52.081Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -863,7 +862,7 @@ Previously you could call <code>getAnimatedValue()</code> or access the internal
         
     
         
-        <script src="../gitbook/gitbook-plugin-fontsettings/buttons.js"></script>
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
         
     
 

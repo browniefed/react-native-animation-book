@@ -2,12 +2,12 @@
 <!DOCTYPE HTML>
 <html lang="" >
     <head>
-        <title>flattenOffset · GitBook</title>
         <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>flattenOffset · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.0.1">
+        <meta name="generator" content="GitBook 3.2.2">
         
         
         
@@ -774,7 +774,7 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="flattenoffset">flattenOffset</h1>
-<p>Read the documentation here <a href="http://facebook.github.io/react-native/docs/animated.html#flattenoffset" _target="blank">http://facebook.github.io/react-native/docs/animated.html#flattenoffset</a>.</p>
+<p>Read the documentation here <a href="http://facebook.github.io/react-native/docs/animated.html#flattenoffset" target="_blank">http://facebook.github.io/react-native/docs/animated.html#flattenoffset</a>.</p>
 <p><code>flattenOffset</code>, like <code>setOffset</code>, is grouped with other <code>Animated.ValueXY</code> methods because it is going to typically be used when dealing with <code>PanResponder</code>, and called in the <code>onPanResponderRelease</code> function.</p>
 <p><code>flattenOffset</code> will take whatever values are in the offset and add them to the base animated value, and then reset the offset to <code>0</code>. For example, if we had an offset of <code>100</code> and our <code>Animated.Value</code> is <code>50</code>, when we call <code>flattenOffset</code>, our offset will become <code>0</code> and our <code>Animated.Value</code> will become <code>150</code>.</p>
 <pre><code>  componentWillMount: function() {
@@ -802,7 +802,7 @@
 // To use
 
 &lt;Animated.View style={[styles.box, {transform: this._animatedValue.getTranslateTransform()}]} {...this._panResponder.panHandlers} /&gt;
-</code></pre><h3 id="live-code-httpsrnplayorgappsmt0yq">Live Code <a href="https://rnplay.org/apps/m_t0yQ" _target="blank">https://rnplay.org/apps/m_t0yQ</a></h3>
+</code></pre><h3 id="live-code-httpsrnplayorgappsmt0yq">Live Code <a href="https://rnplay.org/apps/m_t0yQ" target="_blank">https://rnplay.org/apps/m_t0yQ</a></h3>
 <p>In this context, <code>flattenOffset</code> is taking what ever is set in the offset and merging it in with the animated value. We use <code>flattenOffset</code> to reset our offset back to <code>x: 0, y: 0</code>. Because we reset our offset and our animated value in the <code>onPanResponderGrant</code>, the call to <code>flattenOffset</code> is unnecessary, here. However, in the case where we want to trigger an animation from the released location to another location, <code>flattenOffset</code> is required.</p>
 
                                 
@@ -847,7 +847,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"flattenOffset","level":"1.4.2.4","depth":3,"next":{"title":"start","level":"1.4.3","depth":2,"path":"api/START.md","ref":"api/START.md","articles":[]},"previous":{"title":"setOffset","level":"1.4.2.3","depth":3,"path":"api/SETOFFSET.md","ref":"api/SETOFFSET.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"api/FLATTENOFFSET.md","mtime":"2016-06-09T15:01:09.000Z","type":"markdown"},"gitbook":{"version":"3.0.1","time":"2017-02-10T16:15:19.408Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"flattenOffset","level":"1.4.2.4","depth":3,"next":{"title":"start","level":"1.4.3","depth":2,"path":"api/START.md","ref":"api/START.md","articles":[]},"previous":{"title":"setOffset","level":"1.4.2.3","depth":3,"path":"api/SETOFFSET.md","ref":"api/SETOFFSET.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"api/FLATTENOFFSET.md","mtime":"2017-08-03T18:51:38.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-03T18:56:52.081Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -877,7 +877,7 @@
         
     
         
-        <script src="../gitbook/gitbook-plugin-fontsettings/buttons.js"></script>
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
         
     
 

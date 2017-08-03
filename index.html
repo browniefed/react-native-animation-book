@@ -2,12 +2,12 @@
 <!DOCTYPE HTML>
 <html lang="" >
     <head>
-        <title>Introduction · GitBook</title>
         <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Introduction · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.0.1">
+        <meta name="generator" content="GitBook 3.2.2">
         
         
         
@@ -773,7 +773,7 @@
                                 
                                 <h1 id="react-native-animation-book">React Native Animation Book</h1>
 <p>If you don&apos;t care about anything just jump to the <a href="BASICS.html">Basic Animation Examples</a> which will eventually guide you from basic to advanced animations and allow you to experience the capabilities of React Native animations.</p>
-<p>Check out the raw markdown here, follow along, and report issues for things you&apos;re interested in learning about. <a href="https://github.com/browniefed/react-native-animation-book" _target="blank">https://github.com/browniefed/react-native-animation-book</a></p>
+<p>Check out the raw markdown here, follow along, and report issues for things you&apos;re interested in learning about. <a href="https://github.com/browniefed/react-native-animation-book" target="_blank">https://github.com/browniefed/react-native-animation-book</a></p>
 <h2 id="this-is-a-work-in-progress">THIS IS A WORK IN PROGRESS</h2>
 <p>If you would like to see specific things let me know!</p>
 <p>TODO:</p>
@@ -784,13 +784,13 @@
 <li>Add more gifs and live code examples where needed</li>
 </ul>
 <h2 id="introduction">Introduction</h2>
-<p>React Native has had a fantastic reception. There have already been a ton of great applications built using React Native. However one hugely important part of mobile applications is animations. React on the web has generally been pretty poor at dealing with animations, however there are some great people out their attempting to solve this problem. One such solution is <code>react-motion</code> <a href="https://github.com/chenglou/react-motion/" _target="blank">https://github.com/chenglou/react-motion/</a>.</p>
-<p>However <code>react-motion</code> utilizes <code>setState</code> which if you are animating components with signifcant amounts of children will cause a lot of diffing. Christopher Chedeau then gave a talk at React Rally, which you should watch here <a href="https://www.youtube.com/watch?v=xtqUJVqpKNo" _target="blank">Christopher Chedeau - Animated</a>. Additionally follow along with the slides here <a href="https://speakerdeck.com/vjeux/react-rally-animated-react-performance-toolbox" _target="blank">https://speakerdeck.com/vjeux/react-rally-animated-react-performance-toolbox</a>.</p>
+<p>React Native has had a fantastic reception. There have already been a ton of great applications built using React Native. However one hugely important part of mobile applications is animations. React on the web has generally been pretty poor at dealing with animations, but there are some great people out there attempting to solve this problem. One such solution is <code>react-motion</code> <a href="https://github.com/chenglou/react-motion/" target="_blank">https://github.com/chenglou/react-motion/</a>.</p>
+<p>However <code>react-motion</code> utilizes <code>setState</code> which if you are animating components with signifcant amounts of children will cause a lot of diffing. Christopher Chedeau then gave a talk at React Rally, which you should watch here <a href="https://www.youtube.com/watch?v=xtqUJVqpKNo" target="_blank">Christopher Chedeau - Animated</a>. Additionally follow along with the slides here <a href="https://speakerdeck.com/vjeux/react-rally-animated-react-performance-toolbox" target="_blank">https://speakerdeck.com/vjeux/react-rally-animated-react-performance-toolbox</a>.</p>
 <p>This was a novel technique and really shows off the flexibility of React. Currently it only works on React Native but there is a non-working port for the web.</p>
-<p>There is already some great documentation written up on the React Native <code>Animated</code> library here <a href="http://facebook.github.io/react-native/docs/animated.html" _target="blank">http://facebook.github.io/react-native/docs/animated.html</a>. It&apos;s not perfect by any means but that&apos;s what this book is here for. I&apos;ll be covering all of the APIs, basics, and other topics.</p>
-<p>We&apos;ll also be covering <code>LayoutAnimation</code> which you can read up on here <a href="http://facebook.github.io/react-native/docs/layoutanimation.html" _target="blank">http://facebook.github.io/react-native/docs/layoutanimation.html</a>.</p>
+<p>There is already some great documentation written up on the React Native <code>Animated</code> library here <a href="http://facebook.github.io/react-native/docs/animated.html" target="_blank">http://facebook.github.io/react-native/docs/animated.html</a>. It&apos;s not perfect by any means but that&apos;s what this book is here for. I&apos;ll be covering all of the APIs, basics, and other topics.</p>
+<p>We&apos;ll also be covering <code>LayoutAnimation</code> which you can read up on here <a href="http://facebook.github.io/react-native/docs/layoutanimation.html" target="_blank">http://facebook.github.io/react-native/docs/layoutanimation.html</a>.</p>
 <h2 id="read-the-resources">READ THE RESOURCES</h2>
-<p>A lot of people say there aren&apos;t great resources or documentation on animations, but seriously read <a href="RESOURCES.html">RESOURCES</a>! Read code in the <a href="https://github.com/facebook/react-native/blob/master/Examples/UIExplorer/AnimatedExample.js" _target="blank">Animation Example</a>. Also checkout the code in the <a href="https://github.com/facebook/react-native/tree/master/Examples/UIExplorer/AnimatedGratuitousApp" _target="blank">Gratuitous Animation Examples</a>.</p>
+<p>A lot of people say there aren&apos;t great resources or documentation on animations, but seriously read <a href="RESOURCES.html">RESOURCES</a>! Read code in the <a href="https://github.com/facebook/react-native/blob/master/Examples/UIExplorer/AnimatedExample.js" target="_blank">Animation Example</a>. Also checkout the code in the <a href="https://github.com/facebook/react-native/tree/master/Examples/UIExplorer/AnimatedGratuitousApp" target="_blank">Gratuitous Animation Examples</a>.</p>
 <p>For real though, why are you still here? Go read those before even bothering to read this stuff.</p>
 <h2 id="hey-you-already-blogged-about-this">Hey you already blogged about this</h2>
 <p>Yeah, I might steal some examples from my blog and repurpose them, clean them up, etc. Deal with it. They are my blog posts and I&apos;ll do whatever the hell I want with them.</p>
@@ -833,7 +833,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Resources","level":"1.2","depth":1,"path":"RESOURCES.md","ref":"RESOURCES.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2016-05-25T18:23:13.000Z","type":"markdown"},"gitbook":{"version":"3.0.1","time":"2017-02-10T16:15:19.408Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Resources","level":"1.2","depth":1,"path":"RESOURCES.md","ref":"RESOURCES.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2017-08-03T18:51:38.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-03T18:56:52.081Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
@@ -863,7 +863,7 @@
         
     
         
-        <script src="gitbook/gitbook-plugin-fontsettings/buttons.js"></script>
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
         
     
 

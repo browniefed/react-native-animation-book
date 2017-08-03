@@ -4,7 +4,8 @@
   "description": "React Native has had a fantastic reception. There have already been a ton of great applications built using React Native. However one hugely important part of mobile applications is animations. React on the web has generally been pretty poor at dealing with animations, however there are some great people out their attempting to solve this problem. One such solution is `react-motion` [https://github.com/chenglou/react-motion/](https://github.com/chenglou/react-motion/).",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gitbook build",
+    "dev": "gitbook serve",
     "deploy": "git subtree push --prefix _book origin gh-pages"
   },
   "repository": {
@@ -16,5 +17,10 @@
   "bugs": {
     "url": "https://github.com/browniefed/react-native-animation-book/issues"
   },
-  "homepage": "https://github.com/browniefed/react-native-animation-book#readme"
+  "homepage": "https://github.com/browniefed/react-native-animation-book#readme",
+  "dependencies": {
+    "gitbook-plugin-add-header": "^0.0.19",
+    "gitbook-plugin-header": "^0.1.0",
+    "gitbook-plugin-layout": "0.0.1"
+  }
 }

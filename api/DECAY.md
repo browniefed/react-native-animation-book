@@ -61,7 +61,7 @@ The main part to look at is this function:
 ```
       onPanResponderRelease: (e, {vx, vy}) => {
 ```
-On the release we the second argument is the ending `gestureState`, we use destructing to pop off the velocities.
+On the release we the second argument is the ending `gestureState`, we use destructuring to pop off the velocities.
 
 ```
         if (Math.abs(this.state.pan.x._value) > SWIPE_THRESHOLD) {
@@ -72,4 +72,4 @@ On the release we the second argument is the ending `gestureState`, we use destr
         } else {
 ```
 
-If the user move the card passed a certain threshold (left or right) then we'll continue to animate the card until it stops. This allows you to have the card movement continue as if the user threw the card.
+If the user moves the card passed a certain threshold (left or right) then we'll continue to animate the card until it stops. This allows you to have the card movement continue as if the user threw the card.

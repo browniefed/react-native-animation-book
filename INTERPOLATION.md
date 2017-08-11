@@ -23,7 +23,7 @@ The `this._opacityAnimation` can be used just like an `Animated.Value` and can b
 
 So when our `x` value is 0, our interpolated opacity value will be `1`, at `150` it will be `.2`, and when it's at `75` it'll be `.4` opacity.
 
-You may be thinking to yourself, well what if the user moves the card more than `150`? Well some users may think it will automatically stop and our `_opacityAnimation` will stay at `.2`. That isn't the case be default.
+You may be thinking to yourself, well what if the user moves the card more than `150`? Well some users may think it will automatically stop and our `_opacityAnimation` will stay at `.2`. That isn't the case by default.
 
 You must specify how the interpolation should be extrapolated. If you want it to stop at `.2` no matter how far the `x` goes than you must specify `extrapolate:'clamp'` like so.
 

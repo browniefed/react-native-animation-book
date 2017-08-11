@@ -68,7 +68,7 @@ var SampleApp = React.createClass({
 });
 ```
 
-We setup our `_animatedValue` and create our `interpolate` that spans the range of our content. In our case we've defined it as `5000`, so this is slightly impracticle. But that's what `extrapolation` is for! In our case we'll clamp it but it might make sense to leave it as the default `extend` here.
+We setup our `_animatedValue` and create our `interpolate` that spans the range of our content. In our case we've defined it as `5000`, so this is slightly impractical. But that's what `extrapolation` is for! In our case we'll clamp it but it might make sense to leave it as the default `extend` here.
 
 Now we use [Animated.event](../api/EVENT.md) to map our event from the JSON, to the `contentOffset.y` which is the distance the user has scrolled. Then we can simply pass that into the `onScroll` and as the user scrolls it'll automatically call `setValue` on our `this._animatedValue` which will cause the `interpolate` to control the background color.
 

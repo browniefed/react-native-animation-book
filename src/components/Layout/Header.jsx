@@ -1,25 +1,15 @@
 import React from "react"
-import styled from 'styled-components'
-import Navigation from './Navigation'
+import styled from "react-emotion";
+import Navigation from './nav'
 
 class MainHeader extends React.Component {
 
   render() {
     return (
-      <SiteContainer>
-        <Navigation />
-      </SiteContainer>
+      <Navigation />
     )
   }
 }
 
-const SiteContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: ${props => props.theme.brand};
-  height: 100%;
-  padding:  25px;
-`
 
 export default MainHeader

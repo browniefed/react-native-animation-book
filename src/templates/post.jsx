@@ -1,9 +1,8 @@
 import React from "react";
 import Helmet from "react-helmet";
-import styled from "styled-components"
+import styled from "react-emotion";
 
 import UserInfo from "../components/UserInfo";
-import Disqus from "../components/Disqus/Disqus";
 import PostTags from "../components/PostTags/PostTags";
 import SocialLinks from "../components/SocialLinks/SocialLinks";
 import SEO from "../components/SEO/SEO";
@@ -29,7 +28,7 @@ export default class PostTemplate extends React.Component {
     return (
       <div>
         <Helmet>
-          <title>{`${post.title} | ${config.siteTitle}`}</title>
+          <title>{post.title}</title>
         </Helmet>
         <SEO postPath={slug} postNode={postNode} postSEO />
         <BodyContainer>
@@ -42,7 +41,6 @@ export default class PostTemplate extends React.Component {
             <SocialLinks postPath={slug} postNode={postNode} />
           </div>
           <UserInfo config={config} />
-          <Disqus postNode={postNode} />
         </BodyContainer>
       </div>
     );

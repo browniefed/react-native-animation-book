@@ -1,6 +1,6 @@
 import React from "react"
 import Link from 'gatsby-link'
-import styled from 'styled-components'
+import styled from "react-emotion";
 
 
 // This class should not be used for listing posts, but for chapter based Docs. See PostListing for that.

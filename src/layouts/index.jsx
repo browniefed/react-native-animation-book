@@ -1,6 +1,8 @@
 import React from "react";
 import Helmet from "react-helmet";
-import styled, {ThemeProvider} from "styled-components"
+import {ThemeProvider} from "emotion-theming";
+import styled from "react-emotion";
+
 import config from "../../data/SiteConfig";
 import "./css/index.css";
 import "./css/prism-okaidia.css"

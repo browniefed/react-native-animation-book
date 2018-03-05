@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {FaGithubAlt, FaTwitter} from 'react-icons/lib/fa'
 import {MdMessage, MdEmail} from 'react-icons/lib/md'
-import styled from 'styled-components'
+import styled from "react-emotion";
 
 const Container = styled.div`
     display: flex;

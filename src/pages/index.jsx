@@ -1,10 +1,9 @@
 import React from "react"
 import Helmet from "react-helmet"
-import styled from "styled-components"
+import styled from "react-emotion";
 
 import SEO from "../components/SEO/SEO"
 import config from "../../data/SiteConfig"
-import CtaButton from '../components/CtaButton'
 import Navigation from '../components/Layout/Navigation'
 
 class Index extends React.Component {
@@ -25,9 +24,7 @@ class Index extends React.Component {
             </Hero>
           </IndexHeadContainer>
           <BodyContainer>
-            <h2>A Gatsby Template for Content</h2>
-            <p>Made for modern documentation sites. Table of Contents automatically generated from markdown files. </p>
-            <CtaButton to={'/lesson-one'}>See Your First Post</CtaButton>
+
           </BodyContainer>
         </main>
       </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import Helmet from "react-helmet";
-import styled from "styled-components"
+import styled from "react-emotion";
 
 import SEO from "../components/SEO/SEO"
 import SiteHeader from '../components/Layout/Header'
@@ -21,7 +21,7 @@ export default class LessonTemplate extends React.Component {
     return (
       <div>
         <Helmet>
-          <title>{`${post.title} | ${config.siteTitle}`}</title>
+          <title>{`${post.title}`}</title>
         </Helmet>
         <SEO postPath={slug} postNode={postNode} postSEO />
         <BodyGrid>

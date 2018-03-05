@@ -31,14 +31,14 @@ exports.onCreateNode = ({node, boundActionCreators, getNode}) => {
 };
 
 exports.createPages = ({graphql, boundActionCreators}) => {
-  const {createPage, createRedirect} = boundActionCreators;
+  const {createPage} = boundActionCreators;
 
-  createRedirect({
-    fromPath: `/`,
-    isPermanent: true,
-    redirectInBrowser: true,
-    toPath: `/introduction`,
-  })
+  // createRedirect({
+  //   fromPath: `/`,
+  //   isPermanent: true,
+  //   redirectInBrowser: true,
+  //   toPath: `/introduction`,
+  // })
 
   return new Promise((resolve, reject) => {
     const postPage = path.resolve("src/templates/post.jsx");

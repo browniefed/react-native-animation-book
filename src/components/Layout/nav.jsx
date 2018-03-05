@@ -43,6 +43,9 @@ const TitleBox = styled.a({
   textDecoration: "none",
   color: "#FFF",
   borderBottom: "0",
+  ":hover": {
+    borderBottom: "0",
+  },
 });
 
 const RightNav = styled.div({

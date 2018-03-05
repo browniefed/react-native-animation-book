@@ -39,9 +39,10 @@ const Title = styled.div({
 
 const TitleBox = styled.a({
   padding: "3px 45px",
-  transition: "all ease .3s",
   cursor: "pointer",
   textDecoration: "none",
+  color: "#FFF",
+  borderBottom: "0",
 });
 
 const RightNav = styled.div({
@@ -131,9 +132,6 @@ class TopNav extends Component {
           <HeaderLink href="https://codedaily.io/tutorials">Tutorials</HeaderLink>
           <HeaderLink href="https://codedaily.io/screencasts">Screencasts</HeaderLink>
           <HeaderLink href="https://codedaily.io/courses">Courses</HeaderLink>
-          <HeaderLink href="https://codedaily.io/freebies">
-            Freebies <span>▼</span>
-          </HeaderLink>
         </LeftNav>
         <Title>
           <TitleBox href="https://codedaily.io/">

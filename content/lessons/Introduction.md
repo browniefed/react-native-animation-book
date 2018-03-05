@@ -10,7 +10,7 @@ type: "lesson"
 
 If you don't care about anything just jump to the [Basic Animation Examples](BASICS.md) which will eventually guide you from basic to advanced animations and allow you to experience the capabilities of React Native animations.
 
-Check out the raw markdown here, follow along, and report issues for things you're interested in learning about. [https://github.com/browniefed/react-native-animation-book](https://github.com/browniefed/react-native-animation-book)
+Check out the raw markdown here, follow along, and report issues for things you're interested in learning about. [https://github.com/codedailyio/animation-book](https://github.com/codedailyio/animation-book)
 
 ## THIS IS A WORK IN PROGRESS
 

@@ -42,6 +42,7 @@ class TableOfContents extends React.Component {
     const postNodeChapters = this.buildNodes()
     const listItems = []
     const chapterTitles = this.props.chapterTitles
+    
     postNodeChapters.forEach((chapter, idx) => {
       const chapterLessons = []
       chapter.forEach(node => {
@@ -49,10 +50,7 @@ class TableOfContents extends React.Component {
           <LessonContainer>
             <Link to={node.path}>
               <li>
-                <span>
-                  <p>{node.chapter}.{node.lessonNumber} &nbsp;</p>
-                  <h6>{node.title}</h6>
-                </span>
+                <h6>{node.title}</h6>
               </li>
             </Link>
           </LessonContainer>
@@ -61,7 +59,7 @@ class TableOfContents extends React.Component {
       listItems.push(
         <li className='chapter'>
           <h5 className='tocHeading'>
-            {chapterTitles[idx].toUpperCase()}
+            {chapterTitles[idx] && chapterTitles[idx].toUpperCase()}
           </h5>
           <ul className='chapterItems'>
             {chapterLessons}

@@ -7,6 +7,8 @@ import SiteHeader from "../components/Layout/Header";
 import config from "../../data/SiteConfig";
 import TableOfContents from "../components/Layout/TableOfContents";
 
+import TopAd from "../components/top_ad";
+
 export default class LessonTemplate extends React.Component {
   render() {
     const { slug } = this.props.pathContext;
@@ -36,6 +38,9 @@ export default class LessonTemplate extends React.Component {
             />
           </ToCContainer>
           <BodyContainer>
+            <div css={{ margin: "20px 0"}}>
+              <TopAd />
+            </div>
             <div>
               <div>
                 <a
@@ -82,6 +87,7 @@ export default class LessonTemplate extends React.Component {
                   <Follow username="codedailyio" />
                 </div>
               </div>
+            
               <div dangerouslySetInnerHTML={{ __html: postNode.html }} />
             </div>
           </BodyContainer>

@@ -38,14 +38,14 @@ export default class LessonTemplate extends React.Component {
             />
           </ToCContainer>
           <BodyContainer>
-            <div css={{ margin: "20px 0"}}>
+            <div css={{ marginTop: "20px"}}>
               <TopAd />
             </div>
             <div>
               <div>
                 <a
                   style={{
-                    marginTop: "40px",
+                    marginTop: "20px",
                     width: "100%",
                     display: "flex",
                     justifyContent: "flex-end",

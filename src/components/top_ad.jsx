@@ -6,7 +6,7 @@ import map from "lodash/map";
 function create_UUID() {
   var dt = new Date().getTime();
   var uuid = "loaderxxxxxxxx".replace(/[xy]/g, function(c) {
-    var r = ((dt + Math.random() * 16) % 16) | 0;
+    var r = (dt + Math.random() * 16) % 16 | 0;
     dt = Math.floor(dt / 16);
     return (c == "x" ? r : (r & 0x3) | 0x8).toString(16);
   });
@@ -29,7 +29,7 @@ const AnimatedLine = styled.div({
   width: "100%",
   height: "2px",
   transition: "transform .2s ease-in-out",
-  transform: "scaleX(0)",
+  transform: "scaleX(0)"
 });
 
 const Container = styled.div({
@@ -37,12 +37,12 @@ const Container = styled.div({
   padding: "0 20px",
   margin: "20px 0",
   [`:hover ${AnimatedLine}`]: {
-    transform: "scaleX(1)",
-  },
+    transform: "scaleX(1)"
+  }
 });
 
 const AdLink = styled.a({
-  textDecoration: "none",
+  textDecoration: "none"
 });
 const SponsoredBy = styled.div({
   position: "absolute",
@@ -56,16 +56,16 @@ const SponsoredBy = styled.div({
   letterSpacing: ".75px",
   fontWeight: "600",
   fontSize: "10px",
-  lineHeight: "1",
+  lineHeight: "1"
 });
 
 const Description = styled.p({
   color: "#111",
-  lineHeight: "1.3",
+  lineHeight: "1.3"
 });
 
 const EmptyImage = styled.img({
-  display: "none",
+  display: "none"
 });
 
 const CTAButton = styled.div({
@@ -77,27 +77,27 @@ const CTAButton = styled.div({
   textTransform: "uppercase",
   whiteSpace: "nowrap",
   letterSpacing: ".5px",
-  fontSize: "12px",
+  fontSize: "12px"
 });
 
 const Content = styled.div({
   display: "flex",
   alignItems: "center",
-  justifyContent: "space-between",
+  justifyContent: "space-between"
 });
 
 class TopAd extends Component {
   state = {
-    ad: null,
+    ad: null
   };
-  async componentDidMount() {
+  componentDidMount() {
     const generatedName = create_UUID();
     window[generatedName] = ({ ads }) => {
       const filteredAds = ads.filter(ad => {
         return !isEmpty(ad) && ad.statlink;
       });
       this.setState({
-        ad: filteredAds[0],
+        ad: filteredAds[0]
       });
     };
     const jsonUrl = `https://srv.buysellads.com/ads/CKYIT2JM.json?callback=${generatedName}`;
@@ -134,7 +134,7 @@ class TopAd extends Component {
       statlink,
       textColor,
       textColorHover,
-      title,
+      title
     } = this.state.ad;
 
     if (active !== "1") return null;
@@ -144,7 +144,7 @@ class TopAd extends Component {
     return (
       <Container
         css={{
-          background: `repeating-linear-gradient(-45deg, transparent, transparent 5px, hsla(0, 0%, 0%, .03) 5px, hsla(0, 0%, 0%, .03) 10px) #fafafa0D`,
+          background: `repeating-linear-gradient(-45deg, transparent, transparent 5px, hsla(0, 0%, 0%, .03) 5px, hsla(0, 0%, 0%, .03) 10px) #fafafa0D`
         }}
       >
         <AdLink href={statlink}>
@@ -154,8 +154,8 @@ class TopAd extends Component {
               color: textColor,
               ":hover": {
                 backgroundColor: backgroundHoverColor,
-                color: textColorHover,
-              },
+                color: textColorHover
+              }
             }}
           >
             Sponsored by {company}
@@ -166,14 +166,19 @@ class TopAd extends Component {
               css={{
                 color: ctaTextColor,
                 backgroundColor: ctaBackgroundColor,
-                ":hover": { color: ctaTextColorHover, backgroundColor: ctaBackgroundHoverColor },
+                ":hover": {
+                  color: ctaTextColorHover,
+                  backgroundColor: ctaBackgroundHoverColor
+                }
               }}
             >
               {callToAction}
             </CTAButton>
           </Content>
         </AdLink>
-        {map(pixels, pixel => <EmptyImage src={pixel} />)}
+        {map(pixels, pixel => (
+          <EmptyImage src={pixel} />
+        ))}
         <AnimatedLine css={{ backgroundColor: backgroundHoverColor }} />
       </Container>
     );

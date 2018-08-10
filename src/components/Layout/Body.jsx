@@ -12,7 +12,7 @@ class Body extends React.Component {
     return(
       <Container>
         <h1>Body</h1>
-        <PostListing postEdges = />
+        <PostListing postEdges />
       </Container>
     )
   }

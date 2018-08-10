@@ -5,9 +5,9 @@ import { Follow } from "react-twitter-widgets";
 import SEO from "../components/SEO/SEO";
 import SiteHeader from "../components/Layout/Header";
 import config from "../../data/SiteConfig";
+import TopAd from "../components/top_ad";
 import TableOfContents from "../components/Layout/TableOfContents";
 
-import TopAd from "../components/top_ad";
 
 export default class LessonTemplate extends React.Component {
   render() {
@@ -56,8 +56,10 @@ export default class LessonTemplate extends React.Component {
                   }}
                   href="https://reactnativeanimations.com"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <img
+                    alt="react native animations course image"
                     style={{ height: "150px" }}
                     src="https://images.codedaily.io/courses/react_native_animations.png"
                     className

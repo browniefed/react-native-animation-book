@@ -21,6 +21,7 @@ const getPixels = p => {
     });
   return c;
 };
+
 const AnimatedLine = styled.div({
   position: "absolute",
   bottom: "0",
